@@ -12,6 +12,7 @@ class TicketsController < ApplicationController
 
   def new
     @ticket = @project.tickets.build
+    @ticket.assets.build
   end
 
   def create
