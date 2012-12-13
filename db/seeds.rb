@@ -6,9 +6,19 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Project.create(:name => "Ticketee Beta")
+# Project.create(:name => "Ticketee Beta")
 
-admin_user = User.create(:email => "german@cma.ru",
-                         :password => "123456")
-admin_user.admin = true
-admin_user.confirm!
+# admin_user = User.create(:email => "german@cma.ru",
+#                          :password => "123456")
+# admin_user.admin = true
+# admin_user.confirm!
+
+State.create(:name => "New",
+             :background => "#85FF00",
+             :color => "white")
+State.create(:name => "Open",
+             :background => "#00CFFD",
+             :color => "white")
+State.create(:name => "Closed",
+             :background => "black",
+             :color => "white")
