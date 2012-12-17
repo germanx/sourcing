@@ -30,6 +30,7 @@ Sourcing::Application.routes.draw do
   end
 
   resources :files
+  resources :attachments
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

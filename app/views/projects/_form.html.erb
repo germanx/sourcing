@@ -1,8 +1,16 @@
-<%= form_for(@project) do |f| %>
+<%= form_for [@project], :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
   <p>
     <%= f.label :name %>
     <%= f.text_field :name %>
   </p>
+  
+  <% number = 0 %>
+  <div id='attachments'>
+    <%= render :partial => "attachments/form", :locals => { :number => number } %>
+  </div>
+
+  <%= link_to "Add another attachment", 'javascript:', :id => "add_another_attachment" %>
+
   <%= f.submit %>
 <% end %>

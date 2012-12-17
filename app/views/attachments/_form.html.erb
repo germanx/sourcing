@@ -1,0 +1,8 @@
+<%= fields_for @project do |f| %>
+  <%= f.fields_for :attachments, :child_index => number do |attachment| %>
+    <p>
+      <%= attachment.label :attachment, "Attachment ##{number += 1}" %>
+      <%= attachment.file_field :attachment %>
+    </p>
+  <% end %>
+<% end %>
