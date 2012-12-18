@@ -1,7 +1,12 @@
 class Project < ActiveRecord::Base
-  attr_accessible :name, :attachments_attributes
+  attr_accessible :name, :description, :number, :type_id, :attachments_attributes
 
-  validates :name, :presence => true, :uniqueness => true
+  validates :name,        presence: true, length: { maximum: 100 }, uniqueness: true
+  validates :description, presence: true, length: { maximum: 250 }
+  validates :number,      presence: true, length: { maximum: 30 }
+  validates :user_id,     presence: true  
+
+  belongs_to :user
 
   has_many :tickets, :dependent => :delete_all
   has_many :permissions, :as => :thing  

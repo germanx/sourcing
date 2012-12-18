@@ -1,5 +1,7 @@
 Sourcing::Application.routes.draw do
 
+  root to: 'static_pages#home'
+
   get "users/index"
 
   devise_for :users, :controllers => { :registrations => "registrations" }
@@ -19,8 +21,6 @@ Sourcing::Application.routes.draw do
           :to => 'admin/permissions#update',
           :as => :update_user_permissions
  
-  root :to => "projects#index"
-
   resources :projects do
     resources :tickets
   end

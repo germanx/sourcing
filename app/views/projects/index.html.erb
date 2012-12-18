@@ -1,11 +1,18 @@
-<%= admins_only do %>
-  <%= link_to "New Project", new_project_path %>
+<h3>Projects</h3>
+
+<% @projects.each do |project| %>
+  <div class="project-row">
+    <div class="project-row-in">
+      <div class="project-left">      
+        <h4><%= link_to project.name, project %></h4> 
+        Reference: <%= project.number %>
+        <%= simple_format(project.description) %>
+      </div>
+  </div>
 <% end %>
 
-<h2>Projects</h2>
-
-<ul id='projects'>
-  <% for project in @projects %>
-    <li><%= link_to project.name, project %></li>
+<div class="project-left">  
+  <%= admins_only do %>
+    <%= link_to "New Project", new_project_path, class: "btn btn-small" %>
   <% end %>
-</ul>
+</div>

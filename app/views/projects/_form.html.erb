@@ -1,16 +1,31 @@
 <%= form_for [@project], :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
-  <p>
+  
+  <fieldset>
+    <legend>Project info</legend>
     <%= f.label :name %>
     <%= f.text_field :name %>
-  </p>
-  
+    
+    <div class="field">
+      <%= f.text_area :description, placeholder: "Add description..." %>
+    </div>
+
+    <%= f.label :number %>
+    <%= f.text_field :number %>
+
+    <%= f.label :type_id %>
+    <%= f.select :type_id, 
+      [['Request for information',1], 
+       ['Request for proposal',2],
+       ['Request for quatation',3]] %>
+  </fieldset>
+
   <% number = 0 %>
   <div id='attachments'>
     <%= render :partial => "attachments/form", :locals => { :number => number } %>
   </div>
 
   <%= link_to "Add another attachment", 'javascript:', :id => "add_another_attachment" %>
-
+  <br/>
   <%= f.submit %>
 <% end %>
