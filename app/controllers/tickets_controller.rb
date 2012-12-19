@@ -83,4 +83,8 @@ class TicketsController < ApplicationController
         redirect_to @project
       end
     end
+
+    def creator_watches_me
+      self.watchers << user
+    end
 end

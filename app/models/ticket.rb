@@ -14,4 +14,6 @@ class Ticket < ActiveRecord::Base
 
   has_many :comments
 
+  has_and_belongs_to_many :watchers, :join_table => "ticket_watchers",
+                          :class_name => "User"
 end
