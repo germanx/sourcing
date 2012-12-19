@@ -32,16 +32,13 @@
   <% end %>
 </div>
 
-
-
-<%= render "comments/form" %>
-
 <h4>Comments</h4>
 <div id='comments'>
-  <% if @ticket.comments.exists? %> <co id='ch10_191_1' />
+  <% if @ticket.comments.exists? %> 
     <%= render @ticket.comments.select(&:persisted?) %>
   <% else %>
     There are no comments for this ticket.
   <% end %>
 </div>
 
+<%= render "comments/form" %>

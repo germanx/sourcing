@@ -2,9 +2,8 @@
 
 <fieldset>
   <legend>Project: <%= @project.name %></legend>
-  Reference: <%= @project.number %>
-  Description: <br/>
-  <%= simple_format(@project.description) %>
+  Reference: <%= @project.number %> <br/>
+  Description: <%= simple_format(@project.description) %>
 
   <% if @project.attachments.exists? %>
     <h5>Attached Files</h5>
