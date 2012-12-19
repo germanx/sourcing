@@ -48,7 +48,7 @@ class Admin::UsersController < Admin::BaseController
     if @user == current_user
       flash[:alert] = "You cannot delete yourself!"
     else
-    @ user.destroy
+      @user.destroy
       flash[:notice] = "User has been deleted."
     end
     redirect_to admin_users_path
