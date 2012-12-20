@@ -1,0 +1,18 @@
+<%= form_for [@firm], :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+  
+  <fieldset>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <div class="field">
+      <%= f.text_area :description, placeholder: "Add description..." %>
+    </div>
+
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+   
+  </fieldset>
+  
+  <%= f.submit %>
+<% end %>

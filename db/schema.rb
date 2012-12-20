@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121219114128) do
+ActiveRecord::Schema.define(:version => 20121220083911) do
 
   create_table "assets", :force => true do |t|
     t.string   "asset_file_name"
@@ -33,17 +33,6 @@ ActiveRecord::Schema.define(:version => 20121219114128) do
     t.datetime "updated_at",              :null => false
   end
 
-  create_table "bidders", :force => true do |t|
-    t.string   "company"
-    t.string   "name"
-    t.string   "email"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
-  end
-
   create_table "comments", :force => true do |t|
     t.text     "text"
     t.integer  "ticket_id"
@@ -52,6 +41,24 @@ ActiveRecord::Schema.define(:version => 20121219114128) do
     t.datetime "updated_at",        :null => false
     t.integer  "state_id"
     t.integer  "previous_state_id"
+  end
+
+  create_table "employees", :force => true do |t|
+    t.string   "name"
+    t.integer  "firm_id"
+    t.string   "email"
+    t.string   "position"
+    t.string   "phone"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "firms", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "permissions", :force => true do |t|

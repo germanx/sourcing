@@ -1,0 +1,39 @@
+<% title(@firm.name, "Vendor") %>
+
+<fieldset>
+  <legend>Vendor: <%= @firm.name %></legend>
+  Description: <%= simple_format(@firm.description) %>
+  Email: <%= @firm.email %> <br/>
+
+  <div class="project-right">    
+    <%= admins_only do %>
+      <%= link_to "Edit Vendor", edit_firm_path(@firm), class: "btn btn-small" %>
+      <%= link_to "Delete Vendor", firms_path(@firm), :method => :delete,
+            :confirm => "Are you sure you want to delete this project?", class: "btn btn-small" %>
+    <% end %>
+  </div>
+</fieldset>
+
+<fieldset>
+  <legend>Employees</legend>
+  <div class="project-right">    
+    <%= link_to "New Employee", new_firm_employee_path(@firm), class: "btn btn-small" %>
+  </div>
+  <div class="project-left">    
+    <ul id='tickets'>
+      <% @firm.employees.each do |employee| %>
+        <li>
+          <%= link_to employee.name, [@firm, employee] %> - <%= employee.position %> (<%= employee.email %>)
+
+          <div class="project-right">  
+            <%= link_to "Edit Employee", [:edit, @firm, employee], class: "btn btn-small" %>
+            <%= link_to "Delete Employee",
+                  firm_employee_path(@firm, employee),
+                  :method => :delete,
+                  :confirm => "Are you sure you want to delete this employee?", class: "btn btn-small" %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</fieldset>

@@ -1,0 +1,14 @@
+<fieldset>
+  <legend><%= @employee.name %></legend>
+    Position: <%= @employee.position %> <br/>
+    Email: <%= @employee.email %> <br/>
+    Phone: <%= @employee.phone %> <br/>
+
+  <div class="project-right">  
+    <%= link_to "Edit Employee", [:edit, @firm, @employee], class: "btn btn-small" %>
+    <%= link_to "Delete Employee",
+          firm_employee_path(@firm, @employee),
+          :method => :delete,
+          :confirm => "Are you sure you want to delete this employee?", class: "btn btn-small" %>
+  </div>
+</fieldset>
