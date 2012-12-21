@@ -10,7 +10,9 @@ class Firm < ActiveRecord::Base
   has_many :employees
     
   def self.for(user)
-    user_id = user 
+    if user_id = user 
+       Firm
+    end
   end
 
 end
