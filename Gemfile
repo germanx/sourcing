@@ -53,3 +53,5 @@ gem 'paperclip'
 
 # To use debugger
 # gem 'debugger'
+
+gem 'thin'
