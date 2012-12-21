@@ -7,7 +7,7 @@ class FirmsController < ApplicationController
                     :destroy]
 
   def index
-    @firms = Firm.all
+    @firms = Firm.for(current_user).all
   end
 
   def new
@@ -16,6 +16,7 @@ class FirmsController < ApplicationController
 
    def create
     @firm = Firm.new(params[:firm])
+    @firm.user = current_user
     if @firm.save
       flash[:notice] = "Vendor has been created."
       redirect_to @firm
@@ -50,7 +51,7 @@ class FirmsController < ApplicationController
   private
  
     def find_firm
-      @firm = Firm.find(params[:id])
+      @firm = Firm.for(current_user).find(params[:id])
       rescue ActiveRecord::RecordNotFound
       flash[:alert] = "The Vendor you were looking for could not be found."
       redirect_to firms_path
