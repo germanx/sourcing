@@ -10,7 +10,7 @@ class Firm < ActiveRecord::Base
   has_many :employees
     
   def self.for(user)
-    where(:user_id => user).all
+    find_all_by_user_id(user)
   end
 
 end
