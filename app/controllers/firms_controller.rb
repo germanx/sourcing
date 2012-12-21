@@ -7,7 +7,7 @@ class FirmsController < ApplicationController
                     :destroy]
 
   def index
-    @firms = Firm.for(current_user)
+    @firms = current_user.firms
   end
 
   def new
@@ -51,7 +51,7 @@ class FirmsController < ApplicationController
   private
  
     def find_firm
-      @firm = Firm.for(current_user).find(params[:id])
+      @firm = current_user.firms.find(params[:id])
       rescue ActiveRecord::RecordNotFound
       flash[:alert] = "The Vendor you were looking for could not be found."
       redirect_to firms_path

@@ -14,5 +14,5 @@ class User < ActiveRecord::Base
   end
 
   has_many :permissions
-  
+  has_many :firms
 end

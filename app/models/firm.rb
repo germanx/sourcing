@@ -8,9 +8,4 @@ class Firm < ActiveRecord::Base
   belongs_to :user
 
   has_many :employees
-    
-  def self.for(user)
-    find_all_by_user_id(user)
-  end
-
 end
