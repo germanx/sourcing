@@ -27,7 +27,6 @@
       <%= link_to "Delete Project", project_path(@project), :method => :delete,
             :confirm => "Are you sure you want to delete this project?", class: "btn btn-small" %>
       <br/>      
-      <%= link_to "Bidders", bidders_path, class: "btn btn-small" %>  
     <% end %>
   </div>
 </fieldset>
@@ -35,7 +34,27 @@
 <br/>
 
 <fieldset>
-  <legend>Tickets</legend>
+  <legend>Responses</legend>
+  <div class="project-right">    
+    <%= authorized?("create response".to_sym, @project) do %>
+      <%= link_to "New Response", new_project_response_path(@project), class: "btn btn-small" %>
+    <% end %>
+  </div>
+  <div class="project-left">    
+    <ul id='responses'>
+      <% @project.responses.each do |response| %>
+        <li>
+          <%= response.id %> - <%= link_to response.firm, [@project, response] %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</fieldset>
+
+<br/>
+
+<fieldset>
+  <legend>Questions</legend>
   <div class="project-right">    
     <%= authorized?("create tickets".to_sym, @project) do %>
       <%= link_to "New Ticket", new_project_ticket_path(@project), class: "btn btn-small" %>

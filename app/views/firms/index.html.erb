@@ -1,9 +1,11 @@
 <h3>Vendors</h3>
 
 <div>
-  <% @firms.each do |firm| %>
-    <%= link_to firm.name, firm %>
-  <% end %>
+  <ul>
+    <% @firms.each do |firm| %>
+      <li><%= link_to firm.name, firm %></li>
+    <% end %>
+  </ul>
 </div>
 <div>
   <%= admins_only do %>

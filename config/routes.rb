@@ -23,6 +23,7 @@ Sourcing::Application.routes.draw do
  
   resources :projects do
     resources :tickets
+    resources :responses
   end
 
   resources :tickets do

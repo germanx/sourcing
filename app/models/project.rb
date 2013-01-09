@@ -9,6 +9,7 @@ class Project < ActiveRecord::Base
   belongs_to :user
 
   has_many :tickets, :dependent => :delete_all
+  has_many :responses, :dependent => :delete_all
   has_many :permissions, :as => :thing  
 
   has_many :attachments

@@ -11,16 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121220112538) do
+ActiveRecord::Schema.define(:version => 20130109115904) do
 
   create_table "assets", :force => true do |t|
     t.string   "asset_file_name"
     t.integer  "asset_file_size"
     t.string   "asset_content_type"
     t.datetime "asset_updated_at"
-    t.integer  "ticket_id"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+    t.integer  "response_id"
   end
 
   create_table "attachments", :force => true do |t|
@@ -31,17 +31,6 @@ ActiveRecord::Schema.define(:version => 20121220112538) do
     t.integer  "project_id"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
-  end
-
-  create_table "bidders", :force => true do |t|
-    t.string   "company"
-    t.string   "name"
-    t.string   "email"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
   end
 
   create_table "comments", :force => true do |t|
@@ -94,6 +83,15 @@ ActiveRecord::Schema.define(:version => 20121220112538) do
     t.integer  "user_id"
   end
 
+  create_table "responses", :force => true do |t|
+    t.text     "description"
+    t.integer  "project_id"
+    t.integer  "firm_id"
+    t.integer  "user_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "states", :force => true do |t|
     t.string "name"
     t.string "color"
@@ -113,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20121220112538) do
     t.datetime "updated_at",  :null => false
     t.integer  "user_id"
     t.integer  "state_id"
+    t.integer  "firm_id"
   end
 
   add_index "tickets", ["project_id"], :name => "index_tickets_on_project_id"

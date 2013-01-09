@@ -15,4 +15,5 @@ class User < ActiveRecord::Base
 
   has_many :permissions
   has_many :firms
+  has_many :responses
 end
