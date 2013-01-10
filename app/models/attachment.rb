@@ -3,6 +3,5 @@ class Attachment < ActiveRecord::Base
 
   belongs_to :project
 
-  has_attached_file :attachment,:path => (Rails.root + "attachments/:id").to_s,
-                           :url => "/attachments/:id"
+  has_attached_file :attachment, :path => ":rails_root/:class/:attachment/:id_partition/:style/:filename"
 end
