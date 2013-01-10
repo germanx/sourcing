@@ -34,17 +34,17 @@
 <br/>
 
 <fieldset>
-  <legend>Responses</legend>
+  <legend>Participants</legend>
   <div class="project-right">    
     <%= authorized?("create response".to_sym, @project) do %>
-      <%= link_to "New Response", new_project_response_path(@project), class: "btn btn-small" %>
+      <%= link_to "New Participant", new_project_response_path(@project), class: "btn btn-small" %>
     <% end %>
   </div>
   <div class="project-left">    
     <ul id='responses'>
       <% @project.responses.each do |response| %>
         <li>
-          <%= response.id %> - <%= link_to response.firm, [@project, response] %>
+          <%= response.id %> - <%= link_to response.firm_id, [@project, response] %>
         </li>
       <% end %>
     </ul>

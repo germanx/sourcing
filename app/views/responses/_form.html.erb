@@ -1,5 +1,11 @@
 <%= form_for [@project, @response], :html => { :multipart => true } do |f| %>
   <%= f.error_messages %>
+
+  <p>
+    Vendor
+    <%= collection_select(@response, :firm_id, Firm.all, :id, :name) %>
+  </p>
+  
   <p>
     <%= f.label :description %><br>
     <%= f.text_area :description %>

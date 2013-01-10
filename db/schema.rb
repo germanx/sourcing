@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130109115904) do
+ActiveRecord::Schema.define(:version => 20130110131220) do
 
   create_table "assets", :force => true do |t|
     t.string   "asset_file_name"
@@ -63,6 +63,14 @@ ActiveRecord::Schema.define(:version => 20130109115904) do
   end
 
   add_index "firms", ["user_id"], :name => "index_firms_on_user_id"
+
+  create_table "invitations", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "firm_id"
+    t.datetime "confirmed_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "permissions", :force => true do |t|
     t.integer  "user_id"

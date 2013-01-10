@@ -1,5 +1,5 @@
 class Firm < ActiveRecord::Base
-  attr_accessible :name, :description, :email
+  attr_accessible :name, :description, :email, :firm_id
 
   validates :name,        presence: true, length: { maximum: 100 }
   validates :description, presence: true, length: { maximum: 250 }
@@ -8,4 +8,5 @@ class Firm < ActiveRecord::Base
   belongs_to :user
 
   has_many :employees
+  has_many :responses
 end

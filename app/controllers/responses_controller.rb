@@ -17,7 +17,7 @@ class ResponsesController < ApplicationController
     @response = @project.responses.build(params[:response].merge!(:user => current_user))
     if @response.save
       flash[:notice] = "Response has been created."
-      redirect_to [@project, @response]
+      redirect_to @project
     else
       flash[:alert] = "Response has not been created."
       render :action => "new"
