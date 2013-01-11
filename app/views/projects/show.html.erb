@@ -38,13 +38,14 @@
   <div class="project-right">    
     <%= authorized?("create response".to_sym, @project) do %>
       <%= link_to "New Participant", new_project_response_path(@project), class: "btn btn-small" %>
+      <%= link_to "Send Invitaions", invite_project_response_path(@project), class: "btn btn-small" %>
     <% end %>
   </div>
   <div class="project-left">    
     <ul id='responses'>
       <% @project.responses.each do |response| %>
         <li>
-          <%= response.id %> - <%= link_to response.firm_id, [@project, response] %>
+          <%= link_to response.firm.name, [@project, response] %> 
         </li>
       <% end %>
     </ul>

@@ -46,6 +46,9 @@ class ResponsesController < ApplicationController
     redirect_to @project
   end
 
+  def invite
+  end
+
   private
     
     def find_project
