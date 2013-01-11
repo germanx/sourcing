@@ -23,7 +23,11 @@ Sourcing::Application.routes.draw do
  
   resources :projects do
     resources :tickets
-    resources :responses
+    resources :responses do
+      member do
+        get 'invite'
+      end
+    end
   end
 
   resources :tickets do

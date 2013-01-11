@@ -47,6 +47,7 @@ class ResponsesController < ApplicationController
   end
 
   def invite
+    puts 123
   end
 
   private
