@@ -47,7 +47,13 @@ class ResponsesController < ApplicationController
   end
 
   def invite
-    puts 123
+    @project.responses.each do |response|
+      response.firm.employees.each do |employee|
+        ProjectNotifier.invite(@employee).deliver
+      end
+    end
+    flash[:notice] = "Invitations has been send."
+    redirect_to @project
   end
 
   private
