@@ -1,5 +1,6 @@
 class Response < ActiveRecord::Base
-  attr_accessible :description, :user, :assets_attributes, :firm_id
+  attr_accessible :description, :user, :assets_attributes
+  #, :firm_id
 
   belongs_to :project
   belongs_to :firm

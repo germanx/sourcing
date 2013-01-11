@@ -44,6 +44,7 @@
     <ul id='responses'>
       <% @project.responses.each do |response| %>
         <li>
+          ===<%= response.firm_id %>===
           <%= response.id %> - <%= link_to response.firm_id, [@project, response] %>
         </li>
       <% end %>
