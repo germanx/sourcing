@@ -1,5 +1,7 @@
 <div id='response'>
-  <h2><%= @response.firm.name %></h2>
+  <h2>
+    <%= link_to @response.firm.name, @response.firm %>
+  </h2>
 
   <%= simple_format(@response.description) %>
 

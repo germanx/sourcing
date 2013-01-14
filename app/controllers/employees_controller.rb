@@ -29,9 +29,8 @@ class EmployeesController < ApplicationController
   end
 
   def user
-#    @user = User.new(params[:employee])
-    @user = User.new
-    @user.email = @employee.email
+    @user = User.create(:email => @employee.email, :password => "123456")
+
     if @user.save
         @employee.user_id = @user.id
         if @employee.update_attributes(params[:employee])

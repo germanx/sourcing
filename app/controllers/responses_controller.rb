@@ -8,6 +8,10 @@ class ResponsesController < ApplicationController
                     :update,
                     :destroy]
   
+  def index
+    @responses = @project.responses
+  end
+
   def new
     @response = @project.responses.build
     @response.assets.build

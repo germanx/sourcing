@@ -1,0 +1,22 @@
+<% title(@project.name, "Project") %>
+
+<fieldset>
+  <legend>Project Participants: <%= @project.name %></legend>
+
+  <legend></legend>
+  <div class="project-right">    
+    <%= authorized?("create response".to_sym, @project) do %>
+      <%= link_to "New Participant", new_project_response_path(@project), class: "btn btn-small" %>
+      <%= link_to "Send Invitaions", invite_project_response_path(@project), class: "btn btn-small" %>
+    <% end %>
+  </div>
+  <div class="project-left">    
+    <ul id='responses'>
+      <% @project.responses.each do |response| %>
+        <li>
+          <%= link_to response.firm.name, [@project, response] %> 
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</fieldset>

@@ -4,9 +4,9 @@
     Email: <%= @employee.email %> <br/>
     Phone: <%= @employee.phone %> <br/>
 
-    <% if @employee.user_id %>
+    <% if @employee.user.email %>
       <br/>
-      Employee is a System User as <%= @employee.user_id %>
+      Employee is a System User as <%= @employee.email %>
     <% else %>
       <%= link_to "Add as user", [:user, @firm, @employee], class: "btn btn-small" %>
     <% end %>

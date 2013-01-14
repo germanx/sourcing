@@ -25,6 +25,12 @@
         <li>
           <%= link_to employee.name, [@firm, employee] %> - <%= employee.position %> (<%= employee.email %>)
 
+          <% if employee.user.email %>
+             / eRFP User as <%= employee.email %>
+          <% else %>
+            <%= link_to "Add as user", [:user, @firm, employee], class: "btn btn-small" %>
+          <% end %>
+
           <div class="project-right">  
             <%= link_to "Edit Employee", [:edit, @firm, employee], class: "btn btn-small" %>
             <%= link_to "Delete Employee",
