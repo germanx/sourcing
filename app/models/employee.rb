@@ -6,5 +6,6 @@ class Employee < ActiveRecord::Base
   validates :firm_id,     presence: true  
 
   belongs_to :firm
+  belongs_to :user
 
 end

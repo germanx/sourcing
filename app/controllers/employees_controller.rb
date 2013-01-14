@@ -5,7 +5,8 @@ class EmployeesController < ApplicationController
                     :show,
                     :edit,
                     :update,
-                    :destroy]
+                    :destroy,
+                    :user]
   def new
     @employee = @firm.employees.build
   end
@@ -27,11 +28,27 @@ class EmployeesController < ApplicationController
   def edit
   end
 
+  def user
+#    @user = User.new(params[:employee])
+    @user = User.new
+    @user.email = @employee.email
+    if @user.save
+        @employee.user_id = @user.id
+        if @employee.update_attributes(params[:employee])
+          flash[:notice] = "User has been created."
+        else
+          flash[:alert] = "User has not been linked to employee."
+        end  
+    else
+      flash[:alert] = "User has not been created."
+    end
+    redirect_to @firm
+  end
+
   def update
     if @employee.update_attributes(params[:employee])
       flash[:notice] = "Employee has been updated."
       redirect_to @firm
-#      redirect_to [@firm, @employee]
     else
       flash[:alert] = "Employee has not been updated."
       render :action => "edit"

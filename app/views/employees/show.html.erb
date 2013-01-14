@@ -4,6 +4,13 @@
     Email: <%= @employee.email %> <br/>
     Phone: <%= @employee.phone %> <br/>
 
+    <% if @employee.user_id %>
+      <br/>
+      Employee is a System User as <%= @employee.user_id %>
+    <% else %>
+      <%= link_to "Add as user", [:user, @firm, @employee], class: "btn btn-small" %>
+    <% end %>
+
   <div class="project-right">  
     <%= link_to "Edit Employee", [:edit, @firm, @employee], class: "btn btn-small" %>
     <%= link_to "Delete Employee",

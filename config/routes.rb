@@ -38,7 +38,11 @@ Sourcing::Application.routes.draw do
   resources :attachments
 
   resources :firms do
-    resources :employees
+    resources :employees do
+      member do
+        get 'user'
+      end
+    end
   end  
 
   # The priority is based upon order of creation:
