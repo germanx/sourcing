@@ -6,9 +6,11 @@ class ProjectNotifier < ActionMailer::Base
   #
   #   en.project_notifier.invite.subject
   #
-  def invite(employee)
+  def invite(response, employee)
+    @employee = employee
+    @response = response
     @greeting = "Hi"
 
-    mail to: ["clearaim@gmail.com"]
+    mail to: @employee.email
   end
 end

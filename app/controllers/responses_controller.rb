@@ -47,12 +47,14 @@ class ResponsesController < ApplicationController
   end
 
   def invite
+    invite_count = 0
     @project.responses.each do |response|
       response.firm.employees.each do |employee|
-        ProjectNotifier.invite(@employee).deliver
+        ProjectNotifier.invite(response, employee).deliver
+        invite_count += 1
       end
     end
-    flash[:notice] = "Invitations has been send."
+    flash[:notice] = invite_count.to_s + " invitations has been send."
     redirect_to @project
   end
 
