@@ -3,7 +3,7 @@ class AttachmentsController < ApplicationController
 
   def show
     attachment = Attachment.find(params[:id])
-    if can?(:read, attachment.project)
+    if can?(:view, attachment.project)
       send_file attachment.attachment.path
     else
       flash[:alert] = "The attachment you were looking for could not be found (permission denied)."
