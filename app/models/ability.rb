@@ -9,5 +9,8 @@ class Ability
         permission.thing_id == thing.id
       end
     end
+    if user.admin?
+      can :manage, :all
+    end
   end
 end
