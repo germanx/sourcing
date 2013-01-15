@@ -20,4 +20,14 @@ class AttachmentsController < ApplicationController
 
   end
 
+  def destroy
+    attachment = Attachment.find(params[:id])
+    project = attachment.project
+    attachment.destroy
+
+    respond_to do |format|
+      format.html { redirect_to edit_project_path(project) }
+      format.json { head :no_content }
+    end
+  end
 end
