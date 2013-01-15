@@ -24,7 +24,7 @@ Sourcing::Application.routes.draw do
   resources :projects do
     resources :tickets
     resources :responses do
-      member do
+      collection do
         get 'invite'
       end
     end
