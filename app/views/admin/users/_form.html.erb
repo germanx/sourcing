@@ -8,5 +8,12 @@
   <%= f.label :password %>
   <%= f.password_field :password %>
 </p>
+<p>
+    <%= f.label :admin %>
+    <%= f.select :admin, 
+      [['User',0], 
+       ['Admin',1],
+       ['Publisher',2]] %>
+</p>
 <%= f.submit %>
 <% end %>

@@ -12,7 +12,7 @@
             <li><%= link_to "Vendors", firms_path %></li>
                        
             <%= admins_only do %>
-              <li><%= link_to "Admin", admin_root_path %></li>
+              <li><%= link_to "Admin", admin_users_path %></li>
             <% end %>
 
             <li><%= link_to "Signed in as " + current_user.email, "#" %></li>

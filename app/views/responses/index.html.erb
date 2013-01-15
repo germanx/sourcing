@@ -3,7 +3,6 @@
 <fieldset>
   <legend>Project Participants: <%= @project.name %></legend>
 
-  <legend></legend>
   <div class="project-right">    
     <%= authorized?("create response".to_sym, @project) do %>
       <%= link_to "New Participant", new_project_response_path(@project), class: "btn btn-small" %>
