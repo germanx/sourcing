@@ -9,8 +9,11 @@
           
           <% if user_signed_in? %>
             <li><%= link_to "Projects", projects_path %></li>
-            <li><%= link_to "Vendors", firms_path %></li>
-                       
+
+            <%= publishers_only do %>
+              <li><%= link_to "Vendors", firms_path %></li>
+            <% end %>
+
             <%= admins_only do %>
               <li><%= link_to "Admin", admin_users_path %></li>
             <% end %>

@@ -9,11 +9,8 @@
   <%= f.password_field :password %>
 </p>
 <p>
-    <%= f.label :admin %>
-    <%= f.select :admin, 
-      [['User',0], 
-       ['Admin',1],
-       ['Publisher',2]] %>
+  <%= f.label :publisher %>
+  <%= f.check_box :publisher %>
 </p>
 <%= f.submit %>
 <% end %>
