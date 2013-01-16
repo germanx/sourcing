@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130115115139) do
+ActiveRecord::Schema.define(:version => 20130116111504) do
 
   create_table "assets", :force => true do |t|
     t.string   "asset_file_name"
@@ -31,17 +30,6 @@ ActiveRecord::Schema.define(:version => 20130115115139) do
     t.integer  "project_id"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
-  end
-
-  create_table "bidders", :force => true do |t|
-    t.string   "company"
-    t.string   "name"
-    t.string   "email"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
   end
 
   create_table "comments", :force => true do |t|
@@ -101,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20130115115139) do
     t.string   "description"
     t.integer  "type_id"
     t.integer  "user_id"
+    t.integer  "firm_id"
   end
 
   create_table "responses", :force => true do |t|
@@ -155,9 +144,14 @@ ActiveRecord::Schema.define(:version => 20130115115139) do
     t.datetime "confirmation_sent_at"
     t.boolean  "admin",                                 :default => false
     t.boolean  "publisher",                             :default => false
+    t.integer  "firm_id"
+    t.string   "name"
+    t.string   "position"
+    t.string   "phone"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end
+

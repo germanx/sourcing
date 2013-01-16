@@ -12,6 +12,14 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def authorize_publisher!
+    authenticate_user!
+    unless current_user.publisher?
+      flash[:alert] = "You must be a publisher to do that."
+      redirect_to root_path
+    end
+  end
+  
   def find_states
     @states = State.all
   end

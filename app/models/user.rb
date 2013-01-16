@@ -6,14 +6,17 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :publisher
+  attr_accessible :email, :password, :password_confirmation, :remember_me, 
+    :publisher, :name, :position, :phone
+  
   # attr_accessible :title, :body
 
   def to_s
     "#{email} (#{admin? ? "Admin" : "User"})"
   end
 
+  belongs_to :firm
+
   has_many :permissions
-  has_many :firms
   has_many :responses
 end

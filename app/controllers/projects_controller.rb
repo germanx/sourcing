@@ -1,12 +1,12 @@
 class ProjectsController < ApplicationController
-  before_filter :authorize_admin!, :except => [:index, :show]
+  before_filter :authorize_publisher!, :except => [:index, :show]
   before_filter :authenticate_user!, :only => [:index, :show]
   before_filter :find_project, :only => [
                     :show,
                     :edit,
                     :update,
                     :destroy]
-
+ 
   def index
     @projects = Project.for(current_user).all
   end
@@ -14,12 +14,19 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
     @project.attachments.build
+
+    @project.firm = @firm..for(current_user)
   end
 
   def create
     @project = Project.new(params[:project])
     @project.user = current_user
+    
     if @project.save
+      Permission.create!(:user => current_user,
+                         :thing => @project,
+                         :action => 'view')
+      
       flash[:notice] = "Project has been created."
       redirect_to @project
     else
@@ -58,5 +65,4 @@ class ProjectsController < ApplicationController
       flash[:alert] = "The project you were looking for could not be found."
       redirect_to projects_path
     end
-
 end

@@ -1,4 +1,4 @@
-<h3>Vendors</h3>
+<h3>Companies</h3>
 
 <div>
   <ul>
@@ -8,7 +8,7 @@
   </ul>
 </div>
 <div>
-  <%= admins_only do %>
-    <%= link_to "New Vendor", new_firm_path, class: "btn btn-small" %>
+  <%= publishers_only do %>
+    <%= link_to "New Company", new_firm_path, class: "btn btn-small" %>
   <% end %>
 </div>
