@@ -3,7 +3,7 @@
 <div>
   <ul>
     <% @firms.each do |firm| %>
-      <li><%= link_to firm.name, firm %></li>
+      <li><%= link_to firm.name, edit_firm_path(firm) %></li>
     <% end %>
   </ul>
 </div>

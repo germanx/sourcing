@@ -15,7 +15,7 @@ class ProjectsController < ApplicationController
     @project = Project.new
     @project.attachments.build
 
-    @project.firm = @firm..for(current_user)
+    @project.firm = @firm.for(current_user)
   end
 
   def create
