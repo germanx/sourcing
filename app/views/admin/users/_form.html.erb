@@ -1,12 +1,24 @@
 <%= form_for [:admin, @user] do |f| %>
 <%= f.error_messages %>
 <p>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</p>
+<p>
   <%= f.label :email %>
   <%= f.text_field :email %>
 </p>
 <p>
   <%= f.label :password %>
   <%= f.password_field :password %>
+</p>
+<p>
+  <%= f.label :position %>
+  <%= f.text_field :position %>
+</p>
+<p>
+  <%= f.label :phone %>
+  <%= f.text_field :phone %>
 </p>
 <p>
   <%= f.label :publisher %>

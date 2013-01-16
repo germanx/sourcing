@@ -5,8 +5,10 @@ class Project < ActiveRecord::Base
   validates :description, presence: true, length: { maximum: 250 }
   validates :number,      presence: true, length: { maximum: 30 }
   validates :user_id,     presence: true  
+  validates :firm_id,     presence: true  
 
   belongs_to :user
+  belongs_to :firm
 
   has_many :tickets, :dependent => :delete_all
   has_many :responses, :dependent => :delete_all

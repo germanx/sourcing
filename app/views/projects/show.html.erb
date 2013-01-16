@@ -22,7 +22,7 @@
   <small>Created by <%= @project.user.email %> </small>
 
   <div class="project-right">    
-    <%= admins_only do %>
+    <%= publishers_only do %>
       <%= link_to "Participants & Responses", project_responses_path(@project), class: "btn btn-small" %>
       <%= link_to "Edit Project", edit_project_path(@project), class: "btn btn-small" %>
       <%= link_to "Delete Project", project_path(@project), :method => :delete,

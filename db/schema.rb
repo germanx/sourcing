@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130115115139) do
+ActiveRecord::Schema.define(:version => 20130116111504) do
 
   create_table "assets", :force => true do |t|
     t.string   "asset_file_name"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(:version => 20130115115139) do
     t.string   "description"
     t.integer  "type_id"
     t.integer  "user_id"
+    t.integer  "firm_id"
   end
 
   create_table "responses", :force => true do |t|
@@ -144,6 +145,10 @@ ActiveRecord::Schema.define(:version => 20130115115139) do
     t.datetime "confirmation_sent_at"
     t.boolean  "admin",                                 :default => false
     t.boolean  "publisher",                             :default => false
+    t.integer  "firm_id"
+    t.string   "name"
+    t.string   "position"
+    t.string   "phone"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
