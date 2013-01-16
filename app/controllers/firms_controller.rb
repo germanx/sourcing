@@ -7,10 +7,7 @@ class FirmsController < ApplicationController
                     :destroy]
 
   def index
-#    @firms = current_user.firms
-#    @firms = Firm.all(:order => "name")
      @firms = Firm.for(current_user).all
-#     Project.for(current_user).all
   end
 
   def new
