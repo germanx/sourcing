@@ -12,6 +12,6 @@ class Firm < ActiveRecord::Base
   has_many :responses
 
   def self.for(user)
-    user.admin? ? Firm : Firm.find_all_by_firm(user.firm)
+    user.admin? ? Firm.all : Firm.find_all_by_firm_id(user.firm_id)
   end
 end

@@ -1,4 +1,4 @@
-class Admin::UsersController < Admin::BaseController
+class Admin::UsersController < ApplicationController
   before_filter :find_user, :only => [:show, :edit, :update, :destroy]
 
   def index
@@ -7,6 +7,7 @@ class Admin::UsersController < Admin::BaseController
 
   def new
     @user = User.new
+    @current_user_firms = Firm.for(current_user)
   end
 
   def create
@@ -27,6 +28,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def edit
+    @current_user_firms = Firm.for(current_user)
   end
 
   def update
