@@ -1,5 +1,6 @@
 class Admin::UsersController < ApplicationController
   before_filter :find_user, :only => [:show, :edit, :update, :destroy]
+  before_filter :find_user_firms, :only => [:new, :edit]
 
   def index
     @users = User.all(:order => "email")
@@ -7,7 +8,6 @@ class Admin::UsersController < ApplicationController
 
   def new
     @user = User.new
-    @current_user_firms = Firm.for(current_user)
   end
 
   def create
@@ -28,7 +28,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def edit
-    @current_user_firms = Firm.for(current_user)
   end
 
   def update
@@ -66,4 +65,7 @@ class Admin::UsersController < ApplicationController
       @user.admin = params[:user][:admin] == "1"
     end
 
+    def find_user_firms
+      @current_user_firms = Firm.for(current_user)
+    end
 end
