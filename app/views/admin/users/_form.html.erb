@@ -24,5 +24,9 @@
   <%= f.label :publisher %>
   <%= f.check_box :publisher %>
 </p>
+<p>
+  <%= f.label :firm_id %>
+  <%= f.collection_select(:firm_id, Firm.all, :id, :name) %>
+</p>
 <%= f.submit %>
 <% end %>

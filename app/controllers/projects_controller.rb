@@ -14,14 +14,16 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
     @project.attachments.build
-
-    @project.firm = @firm.for(current_user)
   end
 
   def create
     @project = Project.new(params[:project])
     @project.user = current_user
     
+    if @project.firm.nil?
+      @project.firm = current_user.firm
+    end
+
     if @project.save
       Permission.create!(:user => current_user,
                          :thing => @project,

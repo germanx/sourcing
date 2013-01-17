@@ -2,7 +2,10 @@
   <%= f.error_messages %>
   
   <fieldset>
-    <%= f.text_field :firm_id %>
+    <% if @current_user.admin? %>
+      <%= f.label :firm_id %>
+      <%= f.collection_select(:firm_id, Firm.all, :id, :name) %>
+    <% end %>
 
     <%= f.label :name %>
     <%= f.text_field :name %>
