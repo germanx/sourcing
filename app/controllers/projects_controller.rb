@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
                     :destroy]
  
   def index
-    @projects = Project.for(current_user).all
+    @projects_by_firm = Project.for(current_user).all.group_by{ |project| project.firm.name}
   end
 
   def new
