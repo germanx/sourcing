@@ -21,14 +21,18 @@
   <%= f.text_field :phone %>
 </p>
 <%= admins_only do %>
-<p>
-  <%= f.label :publisher %>
-  <%= f.check_box :publisher %>
-</p>
+  <p>
+    <%= f.label :publisher %>
+    <%= f.check_box :publisher %>
+  </p>
 <% end %>
 <p>
   <%= f.label :firm_id %>
-  <%= f.collection_select(:firm_id, @current_user_firms, :id, :name) %>
+  <% if @user.firm_id %>
+    <%= @user.firm.name %>
+  <% else %>    
+    <%= f.collection_select(:firm_id, @current_user_firms, :id, :name) %>
+  <% end %>
 </p>
 <%= f.submit %>
 <% end %>

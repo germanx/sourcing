@@ -9,6 +9,7 @@ class Admin::UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.firm_id = params[:firm_id]
   end
 
   def create
