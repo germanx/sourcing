@@ -67,10 +67,6 @@ class Admin::UsersController < ApplicationController
       @user.admin = params[:user][:admin] == "1"
     end
 
-    def find_user_firms
-      @current_user_firms = Firm.for(current_user)
-    end
-
     def store_referer
       session[:return_to] ||= request.referer
     end

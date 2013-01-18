@@ -7,6 +7,7 @@ class ResponsesController < ApplicationController
                     :edit,
                     :update,
                     :destroy]
+  before_filter :find_user_firms, :only => [:new, :edit]
   
   def index
     @responses = @project.responses
@@ -15,8 +16,6 @@ class ResponsesController < ApplicationController
   def new
     @response = @project.responses.build
     @response.assets.build
-
-    @user_firms = Firm.for(current_user)
   end
 
   def create
@@ -58,6 +57,7 @@ class ResponsesController < ApplicationController
       response.firm.users.each do |user|
         begin
           ProjectNotifier.invite(response, user).deliver
+          invite_count += 1
         rescue Exception
           # ignore for dev/test
         end
@@ -65,7 +65,6 @@ class ResponsesController < ApplicationController
           :thing_id => response.project.id,
           :thing_type => 'Project',
           :action => 'view').first_or_create
-        invite_count += 1
       end
     end
     flash[:notice] = invite_count.to_s + " invitations has been send."
