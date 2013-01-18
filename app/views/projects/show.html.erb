@@ -22,12 +22,14 @@
   <small>Created by <%= @project.user.email %> </small>
 
   <div class="project-right">    
-    <%= publishers_only do %>
-      <%= link_to "Participants & Responses", project_responses_path(@project), class: "btn btn-small" %>
+
+    <% if current_user.publisher %>
+      <%= link_to "Participants and Responses", project_responses_path(@project), class: "btn btn-small" %>
       <%= link_to "Edit Project", edit_project_path(@project), class: "btn btn-small" %>
       <%= link_to "Delete Project", project_path(@project), :method => :delete,
             :confirm => "Are you sure you want to delete this project?", class: "btn btn-small" %>
-      <br/>      
+    <% else %>
+      <%= link_to @response.firm.name, [@project, @response] %> 
     <% end %>
   </div>
 </fieldset>

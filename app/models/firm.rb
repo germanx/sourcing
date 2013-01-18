@@ -3,7 +3,7 @@ class Firm < ActiveRecord::Base
 
   validates :name,        presence: true, length: { maximum: 100 }
   validates :description, presence: true, length: { maximum: 250 }
-  validates :email,       presence: true, length: { maximum: 50 }
+  validates :email,       length: { maximum: 50 }
 
   belongs_to :firm
 
