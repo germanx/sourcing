@@ -57,6 +57,10 @@ class ResponsesController < ApplicationController
     @project.responses.each do |response|
       response.firm.users.each do |user|
         ProjectNotifier.invite(response, user).deliver
+        Permission.where(:user_id => user.id,
+          :thing_id => response.project.id,
+          :thing_type => 'Project',
+          :action => 'view').first_or_create
         invite_count += 1
       end
     end
