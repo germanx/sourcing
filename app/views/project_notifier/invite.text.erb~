@@ -1,3 +1,0 @@
-ProjectNotifier#invite
-
-<%= @greeting %>, find me in app/views/app/views/project_notifier/invite.text.erb
