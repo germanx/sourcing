@@ -7,8 +7,7 @@ class FirmsController < ApplicationController
                     :destroy]
 
   def index
-#    @firms = current_user.firms
-    @firms = Firm.all(:order => "name")
+     @firms = Firm.for(current_user)
   end
 
   def new
@@ -17,10 +16,10 @@ class FirmsController < ApplicationController
 
    def create
     @firm = Firm.new(params[:firm])
-    @firm.user = current_user
+    @firm.firm = current_user.firm
     if @firm.save
       flash[:notice] = "Vendor has been created."
-      redirect_to @firm
+      redirect_to firms_path
     else
       flash[:alert] = "Vendor has not been created."
       render :action => "new"
@@ -36,7 +35,7 @@ class FirmsController < ApplicationController
   def update
     if @firm.update_attributes(params[:firm])
       flash[:notice] = "Vendor has been updated."
-      redirect_to @firm
+      redirect_to firms_path
     else
       flash[:alert] = "Vendor has not been updated."
       render :action => "edit"

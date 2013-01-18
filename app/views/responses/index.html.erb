@@ -4,7 +4,7 @@
   <legend>Project Participants: <%= @project.name %></legend>
 
   <div class="project-right">    
-    <%= authorized?("create response".to_sym, @project) do %>
+    <%= authorized?("edit".to_sym, @project) do %>
       <%= link_to "New Participant", new_project_response_path(@project), class: "btn btn-small" %>
       <%= link_to "Send Invitaions", invite_project_responses_path(@project), class: "btn btn-small" %>
     <% end %>

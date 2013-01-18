@@ -1,10 +1,10 @@
 class Project < ActiveRecord::Base
-  attr_accessible :name, :description, :number, :type_id, :attachments_attributes
+  attr_accessible :name, :description, :number, :type_id, :attachments_attributes, :firm_id
 
   validates :name,        presence: true, length: { maximum: 100 }, uniqueness: true
   validates :description, presence: true, length: { maximum: 250 }
   validates :number,      presence: true, length: { maximum: 30 }
-  validates :user_id,     presence: true  
+  validates :user_id,     presence: true
   validates :firm_id,     presence: true  
 
   belongs_to :user

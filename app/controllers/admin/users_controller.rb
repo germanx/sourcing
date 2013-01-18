@@ -1,5 +1,7 @@
-class Admin::UsersController < Admin::BaseController
+class Admin::UsersController < ApplicationController
   before_filter :find_user, :only => [:show, :edit, :update, :destroy]
+  before_filter :find_user_firms, :only => [:new, :edit]
+  before_filter :store_referer, :only => [:new, :edit]
 
   def index
     @users = User.all(:order => "email")
@@ -7,6 +9,7 @@ class Admin::UsersController < Admin::BaseController
 
   def new
     @user = User.new
+    @user.firm_id = params[:firm_id]
   end
 
   def create
@@ -16,7 +19,7 @@ class Admin::UsersController < Admin::BaseController
     set_admin
     if @user.save
       flash[:notice] = "User has been created."
-      redirect_to admin_users_path
+      redirect_to session[:return_to]
     else
       flash[:alert] = "User has not been created."
       render :action => "new"
@@ -37,7 +40,7 @@ class Admin::UsersController < Admin::BaseController
     set_admin  
     if @user.update_attributes(params[:user])
       flash[:notice] = "User has been updated."
-      redirect_to admin_users_path
+      redirect_to session[:return_to]
     else
       flash[:alert] = "User has not been updated."
       render :action => "edit"
@@ -64,4 +67,11 @@ class Admin::UsersController < Admin::BaseController
       @user.admin = params[:user][:admin] == "1"
     end
 
+    def find_user_firms
+      @current_user_firms = Firm.for(current_user)
+    end
+
+    def store_referer
+      session[:return_to] ||= request.referer
+    end
 end

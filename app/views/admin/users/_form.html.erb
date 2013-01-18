@@ -20,9 +20,20 @@
   <%= f.label :phone %>
   <%= f.text_field :phone %>
 </p>
+<%= admins_only do %>
+  <p>
+    <%= f.label :publisher %>
+    <%= f.check_box :publisher %>
+  </p>
+<% end %>
 <p>
-  <%= f.label :publisher %>
-  <%= f.check_box :publisher %>
+  <%= f.label :firm_id %>
+  <% if @user.firm_id %>
+    <%= @user.firm.name %>
+    <input name="user[firm_id]" id="user_firm_id" type="hidden" value="<%= @user.firm_id %>">
+  <% else %>    
+    <%= f.collection_select(:firm_id, @current_user_firms, :id, :name) %>
+  <% end %>
 </p>
 <%= f.submit %>
 <% end %>

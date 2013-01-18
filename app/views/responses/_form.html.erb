@@ -3,7 +3,7 @@
 
   <p>
     Vendor
-    <%= f.collection_select(:firm_id, Firm.all, :id, :name) %>
+    <%= f.collection_select(:firm_id, @user_firms, :id, :name) %>
   </p>
   
   <p>

@@ -1,15 +1,16 @@
-<h3>Projects</h3>
-
-<% @projects.each do |project| %>
-  <div class="project-row">
-    <div class="project-row-in">
-      <div class="project-left">      
-        <h4><%= link_to project.name, project %></h4> 
-        <h5>Created by <%= project.user.email %></h5> 
-        Reference: <%= project.number %>
-        <%= simple_format(project.description) %>
-      </div>
-  </div>
+<% @projects_by_firm.each do |firm_name, projects| %>
+  <h3>Projects for <%= firm_name %></h3>
+  <% projects.each do |project| %>
+    <div class="project-row">
+      <div class="project-row-in">
+        <div class="project-left">      
+          <h4><%= link_to project.name, project %></h4> 
+          <h5>Created by <%= project.user.email %></h5> 
+          Reference: <%= project.number %>
+          <%= simple_format(project.description) %>
+        </div>
+    </div>
+  <% end %>
 <% end %>
 
 <div class="project-left">  

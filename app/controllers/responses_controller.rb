@@ -15,6 +15,8 @@ class ResponsesController < ApplicationController
   def new
     @response = @project.responses.build
     @response.assets.build
+
+    @user_firms = Firm.for(current_user)
   end
 
   def create
@@ -53,8 +55,12 @@ class ResponsesController < ApplicationController
   def invite
     invite_count = 0
     @project.responses.each do |response|
-      response.firm.employees.each do |employee|
-        ProjectNotifier.invite(response, employee).deliver
+      response.firm.users.each do |user|
+        ProjectNotifier.invite(response, user).deliver
+        Permission.where(:user_id => user.id,
+          :thing_id => response.project.id,
+          :thing_type => 'Project',
+          :action => 'view').first_or_create
         invite_count += 1
       end
     end
