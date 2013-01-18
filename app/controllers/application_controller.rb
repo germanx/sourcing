@@ -23,4 +23,8 @@ class ApplicationController < ActionController::Base
   def find_states
     @states = State.all
   end
+
+  def find_user_firms
+    @current_user_firms = Firm.for(current_user)
+  end
 end
