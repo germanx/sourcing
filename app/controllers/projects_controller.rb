@@ -28,6 +28,9 @@ class ProjectsController < ApplicationController
       Permission.create!(:user => current_user,
                          :thing => @project,
                          :action => 'view')
+      Permission.create!(:user => current_user,
+                         :thing => @project,
+                         :action => 'edit')
       
       flash[:notice] = "Project has been created."
       redirect_to @project
