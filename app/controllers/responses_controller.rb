@@ -56,7 +56,11 @@ class ResponsesController < ApplicationController
     invite_count = 0
     @project.responses.each do |response|
       response.firm.users.each do |user|
-        ProjectNotifier.invite(response, user).deliver
+        begin
+          ProjectNotifier.invite(response, user).deliver
+        rescue Exception
+          # ignore for dev/test
+        end
         Permission.where(:user_id => user.id,
           :thing_id => response.project.id,
           :thing_type => 'Project',
