@@ -41,6 +41,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @response = Response.find_by_project_id_and_firm_id(@project.id,current_user.firm.id)
   end
 
   def edit
