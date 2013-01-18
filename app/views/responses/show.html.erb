@@ -1,6 +1,6 @@
 <div id='response'>
   <h2>
-    <%= link_to @response.firm.name, @response.firm %>
+    <%= link_to "Response of " + @response.firm.name, "#" %>
   </h2>
 
   <%= simple_format(@response.description) %>
@@ -23,9 +23,8 @@
 </div>
 
 <div class="project-right">  
-  <%= authorized?("edit response", @project) do %>
-    <%= link_to "Edit Participant", [:edit, @project, @response], class: "btn btn-small" %>
-  <% end %>
+  <%= link_to "Edit Response", edit_project_response_path(@project, @response), class: "btn btn-small" %>
+
   <%= authorized?("delete participants", @project) do %>
     <%= link_to "Delete Participant",
         project_response_path(@project, @response),

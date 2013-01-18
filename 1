@@ -37,7 +37,7 @@ edit_admin_user_permission GET    /admin/users/:user_id/permissions/:id/edit(.:f
             project_ticket GET    /projects/:project_id/tickets/:id(.:format)          tickets#show
                            PUT    /projects/:project_id/tickets/:id(.:format)          tickets#update
                            DELETE /projects/:project_id/tickets/:id(.:format)          tickets#destroy
-   invite_project_response GET    /projects/:project_id/responses/:id/invite(.:format) responses#invite
+  invite_project_responses GET    /projects/:project_id/responses/invite(.:format)     responses#invite
          project_responses GET    /projects/:project_id/responses(.:format)            responses#index
                            POST   /projects/:project_id/responses(.:format)            responses#create
       new_project_response GET    /projects/:project_id/responses/new(.:format)        responses#new
@@ -80,14 +80,6 @@ edit_admin_user_permission GET    /admin/users/:user_id/permissions/:id/edit(.:f
                 attachment GET    /attachments/:id(.:format)                           attachments#show
                            PUT    /attachments/:id(.:format)                           attachments#update
                            DELETE /attachments/:id(.:format)                           attachments#destroy
-        user_firm_employee GET    /firms/:firm_id/employees/:id/user(.:format)         employees#user
-            firm_employees GET    /firms/:firm_id/employees(.:format)                  employees#index
-                           POST   /firms/:firm_id/employees(.:format)                  employees#create
-         new_firm_employee GET    /firms/:firm_id/employees/new(.:format)              employees#new
-        edit_firm_employee GET    /firms/:firm_id/employees/:id/edit(.:format)         employees#edit
-             firm_employee GET    /firms/:firm_id/employees/:id(.:format)              employees#show
-                           PUT    /firms/:firm_id/employees/:id(.:format)              employees#update
-                           DELETE /firms/:firm_id/employees/:id(.:format)              employees#destroy
                      firms GET    /firms(.:format)                                     firms#index
                            POST   /firms(.:format)                                     firms#create
                   new_firm GET    /firms/new(.:format)                                 firms#new

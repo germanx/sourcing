@@ -29,7 +29,7 @@
       <%= link_to "Delete Project", project_path(@project), :method => :delete,
             :confirm => "Are you sure you want to delete this project?", class: "btn btn-small" %>
     <% else %>
-      <%= link_to @response.firm.name, [@project, @response] %> 
+      <%= link_to "Response of " + @response.firm.name, [@project, @response], class: "btn btn-small" %> 
     <% end %>
   </div>
 </fieldset>
