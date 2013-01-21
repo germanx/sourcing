@@ -59,3 +59,13 @@
     </ul>
   </div>
 </fieldset>
+
+<br/>
+
+<fieldset> 
+  <legend>Schedule</legend>
+
+  <% @project.stages.each do |stage| %>
+    <%= stage.state.name %> - <%= stage.stage_start %> 
+  <% end %>
+</fieldset>

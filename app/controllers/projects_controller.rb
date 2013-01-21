@@ -24,6 +24,10 @@ class ProjectsController < ApplicationController
       @project.firm = current_user.firm
     end
 
+    if @project.state.nil?
+      @project.state_id = 1
+    end
+
     if @project.save
       Permission.create!(:user => current_user,
                          :thing => @project,
