@@ -1,17 +1,21 @@
 <%= fields_for @project do |f| %>
   <%= f.fields_for :attachments, :child_index => number do |attachment| %>
     <% if attachment.object.attachment_file_name.nil? %>
-    <p>
-      <%= attachment.label :attachment, "Attachment ##{number += 1}" %>
-      <%= attachment.file_field :attachment %>
-      <%= attachment.object.attachment_file_name %>
-    </p>
+      <p>
+        <%= attachment.label :attachment, "Attachment ##{number += 1}" %>
+        <%= attachment.file_field :attachment %>
+        <%= attachment.object.attachment_file_name %>
+      </p>
     <% else %>
-    <p>
-      <%= attachment.label :attachment, "Attachment ##{number += 1}" %>
-      <%= attachment.object.attachment_file_name %>
-      <%= link_to 'Delete', attachment.object, confirm: 'Are you sure?', method: :delete %>
-    </p>
+      <p>
+        <%= attachment.label :attachment, "Attachment ##{number += 1}" %>
+        <%= attachment.object.attachment_file_name %>
+        <%= link_to 'Delete', attachment.object, confirm: 'Are you sure?', method: :delete %>
+      </p>
     <% end %>
+    <p>
+      <%= attachment.label :description %>
+      <%= attachment.text_field :description %>
+    </p>
   <% end %>
 <% end %>
