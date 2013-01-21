@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130116133659) do
+ActiveRecord::Schema.define(:version => 20130121090948) do
 
   create_table "assets", :force => true do |t|
     t.string   "asset_file_name"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20130116133659) do
     t.integer  "project_id"
     t.datetime "created_at",              :null => false
     t.datetime "updated_at",              :null => false
+    t.string   "description"
   end
 
   create_table "comments", :force => true do |t|
@@ -92,6 +93,7 @@ ActiveRecord::Schema.define(:version => 20130116133659) do
     t.integer  "type_id"
     t.integer  "user_id"
     t.integer  "firm_id"
+    t.integer  "state_id"
   end
 
   create_table "responses", :force => true do |t|
@@ -121,12 +123,10 @@ ActiveRecord::Schema.define(:version => 20130116133659) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.integer  "user_id"
-    t.integer  "state_id"
     t.integer  "firm_id"
   end
 
   add_index "tickets", ["project_id"], :name => "index_tickets_on_project_id"
-  add_index "tickets", ["state_id"], :name => "index_tickets_on_state_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "",    :null => false

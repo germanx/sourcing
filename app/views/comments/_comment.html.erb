@@ -1,7 +1,5 @@
 <%= div_for(comment) do %>
   <h5><%= comment.user %></h5>
   
-  <%= state_for(comment) %>
-  
   <%= simple_format(comment.text) %>
 <% end %>

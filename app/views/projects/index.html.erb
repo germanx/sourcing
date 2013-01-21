@@ -5,9 +5,11 @@
       <div class="project-row-in">
         <div class="project-left">      
           <h4><%= link_to project.name, project %></h4> 
-          <h5>Created by <%= project.user.email %></h5> 
-          Reference: <%= project.number %>
           <%= simple_format(project.description) %>
+          Reference: <%= project.number %>
+          <br/>
+          State: <%= project.state.name %>
+          <h5>Created by <%= project.user.email %></h5> 
         </div>
     </div>
   <% end %>
