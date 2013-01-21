@@ -1,5 +1,6 @@
 class Project < ActiveRecord::Base
-  attr_accessible :name, :description, :number, :type_id, :attachments_attributes, :firm_id
+  attr_accessible :name, :description, :number, :type_id, :attachments_attributes, 
+                  :firm_id, :state_id
 
   validates :name,        presence: true, length: { maximum: 100 }, uniqueness: true
   validates :description, presence: true, length: { maximum: 250 }
@@ -9,6 +10,7 @@ class Project < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :firm
+  belongs_to :state
 
   has_many :tickets, :dependent => :delete_all
   has_many :responses, :dependent => :delete_all
@@ -26,5 +28,5 @@ class Project < ActiveRecord::Base
   def self.for(user)
     user.admin? ? Project : Project.readable_by(user)
   end
-
+  
 end

@@ -7,9 +7,16 @@
       <%= f.collection_select(:firm_id, Firm.all, :id, :name) %>
     <% end %>
 
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.label :state_id %>
+      <%= f.collection_select(:state_id, State.all, :id, :name) %>
+    </p>
+
     <div class="field">
       <%= f.text_area :description, placeholder: "Add description..." %>
     </div>

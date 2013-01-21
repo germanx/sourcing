@@ -6,9 +6,9 @@ class TicketsController < ApplicationController
                     :edit,
                     :update,
                     :destroy]
-  before_filter :authorize_create!, :only => [:new, :create]
-  before_filter :authorize_update!, :only => [:edit, :update]
-  before_filter :authorize_delete!, :only => :destroy
+#  before_filter :authorize_create!, :only => [:new, :create]
+#  before_filter :authorize_update!, :only => [:edit, :update]
+#  before_filter :authorize_delete!, :only => :destroy
 
   def new
     @ticket = @project.tickets.build
@@ -27,7 +27,6 @@ class TicketsController < ApplicationController
 
   def show
     @comment = @ticket.comments.build
-    @states = State.all
   end
 
   def edit

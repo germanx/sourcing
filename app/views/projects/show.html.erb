@@ -2,8 +2,11 @@
 
 <fieldset>
   <legend>Project: <%= @project.name %></legend>
-  Reference: <%= @project.number %> <br/>
-  Description: <%= simple_format(@project.description) %>
+  Reference: <%= @project.number %> 
+  <br/>
+  Description: <%= simple_format(@project.description) %> 
+  <br/>
+  State: <%= @project.state.name %>
 
   <% if @project.attachments.exists? %>
     <h5>Attached Files</h5>
@@ -38,16 +41,17 @@
 
 <fieldset>
   <legend>Questions</legend>
-  <div class="project-right">    
-    <%= authorized?("create tickets".to_sym, @project) do %>
+  
+  <% if not current_user.publisher %>
+    <div class="project-right">    
       <%= link_to "New Ticket", new_project_ticket_path(@project), class: "btn btn-small" %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
+
   <div class="project-left">    
     <ul id='tickets'>
       <% @project.tickets.each do |ticket| %>
         <li>
-          <%= render ticket.state if ticket.state %>
           <%= ticket.id %> - <%= link_to ticket.title, [@project, ticket] %>
         </li>
       <% end %>

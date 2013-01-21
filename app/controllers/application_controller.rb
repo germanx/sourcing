@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :find_states
+#  before_filter :find_states
   
   private 
 
