@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
   attr_accessible :name, :description, :number, :type_id, :attachments_attributes, 
-                  :firm_id, :state_id
+                  :firm_id, :state_id, :stages_attributes
 
   validates :name,        presence: true, length: { maximum: 100 }, uniqueness: true
   validates :description, presence: true, length: { maximum: 250 }
@@ -16,11 +16,12 @@ class Project < ActiveRecord::Base
   has_many :tickets, :dependent => :delete_all
   has_many :responses, :dependent => :delete_all
   has_many :permissions, :as => :thing  
+
   has_many :stages, :dependent => :delete_all
+  accepts_nested_attributes_for :stages
 
   has_many :attachments
   accepts_nested_attributes_for :attachments
-
 
   scope :readable_by, lambda { |user|
     joins(:permissions).where(:permissions => { :action => "view",

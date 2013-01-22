@@ -40,5 +40,28 @@
     <%= link_to "Add another attachment", 'javascript:', :id => "add_another_attachment" %> </fieldset>
   </fieldset>
 
+  <fieldset> 
+    <legend>Schedule</legend>
+    <table>
+    <thead>
+      <th>Stage</th>
+      <th>Date</th>
+    </thead>
+    <tbody>
+      <%= f.fields_for :stages do |stage_field| %>
+        <tr>
+          <td><%= stage_field.object.state %></td>
+          <td>
+            <%= stage_field.date_select(:stage_start) %>
+            <%= stage_field.hidden_field(:state_id) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  </fieldset>
+
+
   <%= f.submit %>
 <% end %>

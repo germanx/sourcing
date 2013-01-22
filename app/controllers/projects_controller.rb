@@ -6,6 +6,7 @@ class ProjectsController < ApplicationController
                     :edit,
                     :update,
                     :destroy]
+  before_filter :find_states, :only => [:new, :edit]
  
   def index
     @projects_by_firm = Project.for(current_user).all.group_by{ |project| project.firm.name}
@@ -13,7 +14,11 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-    @project.attachments.build
+
+    @states.each do |state|
+      stage = @project.stages.build :state => state
+      stage.project = @project
+    end
   end
 
   def create

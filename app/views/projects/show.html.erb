@@ -64,8 +64,9 @@
 
 <fieldset> 
   <legend>Schedule</legend>
-
   <% @project.stages.each do |stage| %>
-    <%= stage.state.name %> - <%= stage.stage_start %> 
+    <p>
+      <%= stage.state.name %> - <%= stage.stage_start.to_date.to_s %> 
+    </p>
   <% end %>
 </fieldset>
