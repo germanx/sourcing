@@ -52,7 +52,10 @@
         <tr>
           <td><%= stage_field.object.state %></td>
           <td>
-            <%= stage_field.date_select(:stage_start) %>
+            <%= stage_field.text_field(
+              :stage_start, 
+              :value => stage_field.object.stage_start.to_date.to_s,
+              :databehaviour => 'datepicker') %>
             <%= stage_field.hidden_field(:state_id) %>
           </td>
         </tr>
