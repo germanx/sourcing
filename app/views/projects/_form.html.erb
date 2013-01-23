@@ -55,6 +55,7 @@
             <%= stage_field.text_field(
               :stage_start, 
               :value => stage_field.object.stage_start.to_date.to_s,
+              :readonly => !stage_field.object.state.edit,
               :databehaviour => 'datepicker') %>
             <%= stage_field.hidden_field(:state_id) %>
           </td>
