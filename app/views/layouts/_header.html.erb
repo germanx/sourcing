@@ -1,10 +1,15 @@
-<header class="navbar navbar-fixed-top">
+<div class="navbar navbar-static-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <nav>
-        <%= link_to "eRFP", root_path, id: "logo" %>
-        
-        <ul class="nav pull-left">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <%= link_to "eRFP", root_path, :class => "brand" %>
+
+      <div class="nav-collapse">
+        <ul class="nav">
           <li><%= link_to "About", "#" %></li>
           
           <% if user_signed_in? %>
@@ -17,17 +22,16 @@
             <%= admins_only do %>
               <li><%= link_to "Admin", admin_users_path %></li>
             <% end %>
-
+    
             <li><%= link_to "Signed in as " + current_user.email, "#" %></li>
             <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+
           <% else %>
             <li><%= link_to "Sign in", new_user_session_path %></li>
             <li><%= link_to "Sign up", new_user_registration_path %></li>
           <% end %>
         </ul>
-      </nav>
-
-      
+      </div>
     </div>
   </div>
-</header>
+</div>

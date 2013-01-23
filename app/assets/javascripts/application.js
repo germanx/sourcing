@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require jquery.ui.all
-//= require bootstrap
 //= require_tree .
 
 $(function() {
-  $("[databehaviour~='datepicker']").datepicker({"dateFormat": "dd.mm.yy"});
+  $("[databehaviour~='datepicker'][readonly!='readonly']").datepicker({"dateFormat": "dd.mm.yy"});
 });

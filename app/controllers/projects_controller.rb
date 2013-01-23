@@ -1,12 +1,13 @@
 class ProjectsController < ApplicationController
   before_filter :authorize_publisher!, :except => [:index, :show]
   before_filter :authenticate_user!, :only => [:index, :show]
-  before_filter :find_project, :only => [
+  before_filter :find_project_by_params_id, :only => [
                     :show,
                     :edit,
                     :update,
-                    :destroy]
-  before_filter :find_states, :only => [:new, :edit]
+                    :destroy,
+                    :change_state]
+  before_filter :find_states, :only => [:new, :edit, :show]
  
   def index
     @projects_by_firm = Project.for(current_user).all.group_by{ |project| project.firm.name}
@@ -14,11 +15,6 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-
-    @states.each do |state|
-      stage = @project.stages.build :state => state
-      stage.project = @project
-    end
   end
 
   def create
@@ -30,7 +26,7 @@ class ProjectsController < ApplicationController
     end
 
     if @project.state.nil?
-      @project.state_id = 1
+      @project.state = State.find_by_name('New')
     end
 
     if @project.save
@@ -40,7 +36,14 @@ class ProjectsController < ApplicationController
       Permission.create!(:user => current_user,
                          :thing => @project,
                          :action => 'edit')
-      
+
+      if @project.stages.count == 0
+        stage = @project.stages.build :state => State.find_by_name('New')
+        stage.project = @project
+        stage.stage_start = Date.today
+        stage.save
+      end
+
       flash[:notice] = "Project has been created."
       redirect_to @project
     else
@@ -72,12 +75,15 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
 
-  private
- 
-    def find_project
-      @project = Project.readonly(false).for(current_user).find(params[:id])
-      rescue ActiveRecord::RecordNotFound
-      flash[:alert] = "The project you were looking for could not be found."
-      redirect_to projects_path
+  def change_state
+    @project.state = State.find(params[:state])
+    if @project.save
+      flash[:notice] = "Project state has been updated."
+      redirect_to @project
+    else
+      flash[:alert] = "Project state has not been updated."
+      redirect_to @project
     end
+    
+  end
 end

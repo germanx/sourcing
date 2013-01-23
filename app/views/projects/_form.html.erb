@@ -1,38 +1,51 @@
-<%= form_for [@project], :html => { :multipart => true } do |f| %>
+<%= form_for [@project], :html => { :multipart => true, :class => 'form-horizontal' } do |f| %>
   <%= f.error_messages %>
-  
-  <fieldset>
+
     <% if @current_user.admin? %>
-      <%= f.label :firm_id %>
-      <%= f.collection_select(:firm_id, Firm.all, :id, :name) %>
+      <div class="control-group">
+        <%= f.label :firm_id %>
+        <div class="controls">
+          <%= f.collection_select(:firm_id, Firm.all, :id, :name) %>
+        </div>
+      </div>
     <% end %>
 
-    <p>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-    </p>
-
-    <p>
-      <%= f.label :state_id %>
-      <%= f.collection_select(:state_id, State.all, :id, :name) %>
-    </p>
-
-    <div class="field">
-      <%= f.text_area :description, placeholder: "Add description..." %>
+    <div class="control-group">
+      <%= f.label :name, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :name, :class => 'text_field' %>
+      </div>
     </div>
 
-    <%= f.label :number %>
-    <%= f.text_field :number %>
+    <div class="control-group">
+      <%= f.label :number, :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :number %>
+        </div>
+    </div>
 
-    <%= f.label :type_id %>
-    <%= f.select :type_id, 
-      [['Request for information',1], 
-       ['Request for proposal',2],
-       ['Request for quatation',3]] %>
-  </fieldset>
+    <div class="control-group">
+      <%= f.label :type_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.select :type_id, 
+          [['Request for information',1], 
+          ['Request for proposal',2],
+          ['Request for quatation',3]], :class => 'select' %>
+      </div>
+    </div>
+
+    <div class="controls">
+      <%= f.text_area :description, placeholder: "Add description...", :rows => 3 %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', projects_path, :class => 'btn' %>
+    </div>
+
 
   <fieldset> 
-    <legend>Attachments</legend>
+    <legend>Attachments (будет перенесено на отдельную форму)</legend>
     <% number = 0 %>
     <div id='attachments'>
       <%= render :partial => "attachments/form", :locals => { :number => number } %>
@@ -40,31 +53,4 @@
     <%= link_to "Add another attachment", 'javascript:', :id => "add_another_attachment" %> </fieldset>
   </fieldset>
 
-  <fieldset> 
-    <legend>Schedule</legend>
-    <table>
-    <thead>
-      <th>Stage</th>
-      <th>Date</th>
-    </thead>
-    <tbody>
-      <%= f.fields_for :stages do |stage_field| %>
-        <tr>
-          <td><%= stage_field.object.state %></td>
-          <td>
-            <%= stage_field.text_field(
-              :stage_start, 
-              :value => stage_field.object.stage_start.to_date.to_s,
-              :databehaviour => 'datepicker') %>
-            <%= stage_field.hidden_field(:state_id) %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
-  </fieldset>
-
-
-  <%= f.submit %>
 <% end %>
