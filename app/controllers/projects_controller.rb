@@ -18,6 +18,7 @@ class ProjectsController < ApplicationController
     @states.each do |state|
       stage = @project.stages.build :state => state
       stage.project = @project
+      stage.stage_start = Date.today
     end
   end
 

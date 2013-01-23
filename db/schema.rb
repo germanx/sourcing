@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130121110602) do
+ActiveRecord::Schema.define(:version => 20130123121238) do
 
   create_table "assets", :force => true do |t|
     t.string   "asset_file_name"
@@ -125,9 +125,10 @@ ActiveRecord::Schema.define(:version => 20130121110602) do
   end
 
   create_table "states", :force => true do |t|
-    t.string "name"
-    t.string "color"
-    t.string "background"
+    t.string  "name"
+    t.string  "color"
+    t.string  "background"
+    t.boolean "edit",       :default => true
   end
 
   create_table "ticket_watchers", :id => false, :force => true do |t|
