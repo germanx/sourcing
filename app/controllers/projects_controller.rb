@@ -37,7 +37,7 @@ class ProjectsController < ApplicationController
                          :thing => @project,
                          :action => 'edit')
 
-      if @project.stages.count == 0
+      if !@project.stages.exists?
         stage = @project.stages.build :state => State.find_by_name('New')
         stage.project = @project
         stage.stage_start = Date.today

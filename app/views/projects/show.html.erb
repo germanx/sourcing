@@ -10,21 +10,6 @@
   <br/>
   State: <%= @project.state.name %>
 
-  <% if @project.attachments.exists? %>
-    <h5>Attached Files</h5>
-    <div class="attachments">
-      <% @project.attachments.each do |attachment| %>
-        <p>
-          <%= link_to File.basename(attachment.attachment_file_name), attachment_path(attachment) %>
-          <%= attachment.description %>
-        </p>
-        <p>
-          <small><%= number_to_human_size(attachment.attachment.size) %></small>
-        </p>
-      <% end %>
-    </div>
-  <% end %>
-
   <small>Created by <%= @project.user.email %> </small>
 
   <div class="form-actions">    
@@ -75,6 +60,26 @@
 </fieldset>
 
 <br/>
+
+<fieldset> 
+  <legend>Attached Files</legend>
+  <% if @project.attachments.empty? %>
+    <em class="muted">There is no attachments. Click manage to add some.</em>
+  <% end %>
+  <% @project.attachments.each do |attachment| %>
+    <p>
+      <%= link_to File.basename(attachment.attachment_file_name), attachment_path(attachment) %>
+      <%= attachment.description %>
+    </p>
+    <p>
+      <small><%= number_to_human_size(attachment.attachment.size) %></small>
+    </p>
+  <% end %>
+  <div class="form-actions">
+    <%= link_to "Manage", edit_stage_path(@project), class: "btn btn-primary" %>
+  </div>
+</fieldset> 
+
 
 <fieldset> 
   <legend>Schedule</legend>
