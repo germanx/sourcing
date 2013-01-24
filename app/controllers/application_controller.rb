@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   def authorize_admin!
     authenticate_user!
     unless current_user.admin?
-      flash[:alert] = "You must be an admin to do that."
+      flash[:error] = "You must be an admin to do that."
       redirect_to root_path
     end
   end
@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   def authorize_publisher!
     authenticate_user!
     unless current_user.publisher?
-      flash[:alert] = "You must be a publisher to do that."
+      flash[:error] = "You must be a publisher to do that."
       redirect_to root_path
     end
   end
@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
     @project = Project.readonly(false).for(current_user).find(params[:id])
 
     rescue ActiveRecord::RecordNotFound
-    flash[:alert] = "The project you were looking for could not be found."
+    flash[:error] = "The project you were looking for could not be found."
     redirect_to projects_path
   end
 end

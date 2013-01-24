@@ -18,10 +18,10 @@ class FirmsController < ApplicationController
     @firm = Firm.new(params[:firm])
     @firm.firm = current_user.firm
     if @firm.save
-      flash[:notice] = "Vendor has been created."
+      flash[:success] = "Vendor has been created."
       redirect_to firms_path
     else
-      flash[:alert] = "Vendor has not been created."
+      flash[:error] = "Vendor has not been created."
       render :action => "new"
     end
   end
@@ -34,17 +34,17 @@ class FirmsController < ApplicationController
 
   def update
     if @firm.update_attributes(params[:firm])
-      flash[:notice] = "Vendor has been updated."
+      flash[:success] = "Vendor has been updated."
       redirect_to firms_path
     else
-      flash[:alert] = "Vendor has not been updated."
+      flash[:error] = "Vendor has not been updated."
       render :action => "edit"
     end
   end
 
   def destroy
     @firm.destroy
-    flash[:notice] = "Vendor has been deleted."
+    flash[:success] = "Vendor has been deleted."
     redirect_to firms_path
   end
 
@@ -54,7 +54,7 @@ class FirmsController < ApplicationController
 #      @firm = current_user.firms.find(params[:id])
       @firm = Firm.find(params[:id])
       rescue ActiveRecord::RecordNotFound
-      flash[:alert] = "The Vendor you were looking for could not be found."
+      flash[:error] = "The Vendor you were looking for could not be found."
       redirect_to firms_path
     end
 

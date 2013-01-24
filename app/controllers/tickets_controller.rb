@@ -17,10 +17,10 @@ class TicketsController < ApplicationController
   def create
     @ticket = @project.tickets.build(params[:ticket].merge!(:user => current_user))
     if @ticket.save
-      flash[:notice] = "Ticket has been created."
+      flash[:success] = "Ticket has been created."
       redirect_to [@project, @ticket]
     else
-      flash[:alert] = "Ticket has not been created."
+      flash[:error] = "Ticket has not been created."
       render :action => "new"
     end
   end
@@ -34,17 +34,17 @@ class TicketsController < ApplicationController
 
   def update
     if @ticket.update_attributes(params[:ticket])
-      flash[:notice] = "Ticket has been updated."
+      flash[:success] = "Ticket has been updated."
       redirect_to [@project, @ticket]
     else
-      flash[:alert] = "Ticket has not been updated."
+      flash[:error] = "Ticket has not been updated."
       render :action => "edit"
     end
   end
 
   def destroy
     @ticket.destroy
-    flash[:notice] = "Ticket has been deleted."
+    flash[:success] = "Ticket has been deleted."
     redirect_to @project
   end
 
@@ -53,7 +53,7 @@ class TicketsController < ApplicationController
     def find_project
       @project = Project.for(current_user).find(params[:project_id])
       rescue ActiveRecord::RecordNotFound
-        flash[:alert] = "The project you were looking for could not be found."
+        flash[:error] = "The project you were looking for could not be found."
         redirect_to root_path
     end
 
@@ -63,21 +63,21 @@ class TicketsController < ApplicationController
 
     def authorize_create!
       if !current_user.admin? && cannot?("create tickets".to_sym, @project)
-        flash[:alert] = "You cannot create tickets on this project."
+        flash[:error] = "You cannot create tickets on this project."
         redirect_to @project
       end
     end
 
     def authorize_update!
       if !current_user.admin? && cannot?(:"edit tickets", @project)
-        flash[:alert] = "You cannot edit tickets on this project."
+        flash[:error] = "You cannot edit tickets on this project."
         redirect_to @project
       end
     end
 
     def authorize_delete!
       if !current_user.admin? && cannot?(:"delete tickets", @project)
-        flash[:alert] = "You cannot delete tickets from this project."
+        flash[:error] = "You cannot delete tickets from this project."
         redirect_to @project
       end
     end

@@ -14,10 +14,10 @@ class EmployeesController < ApplicationController
   def create
     @employee = @firm.employees.build(params[:employee])
     if @employee.save
-      flash[:notice] = "Employee has been created."
+      flash[:success] = "Employee has been created."
       redirect_to @firm
     else
-      flash[:alert] = "Employee has not been created."
+      flash[:error] = "Employee has not been created."
       render :action => "new"
     end
   end
@@ -34,29 +34,29 @@ class EmployeesController < ApplicationController
     if @user.save
         @employee.user_id = @user.id
         if @employee.update_attributes(params[:employee])
-          flash[:notice] = "User has been created."
+          flash[:success] = "User has been created."
         else
-          flash[:alert] = "User has not been linked to employee."
+          flash[:error] = "User has not been linked to employee."
         end  
     else
-      flash[:alert] = "User has not been created."
+      flash[:error] = "User has not been created."
     end
     redirect_to @firm
   end
 
   def update
     if @employee.update_attributes(params[:employee])
-      flash[:notice] = "Employee has been updated."
+      flash[:success] = "Employee has been updated."
       redirect_to @firm
     else
-      flash[:alert] = "Employee has not been updated."
+      flash[:error] = "Employee has not been updated."
       render :action => "edit"
     end
   end
 
   def destroy
     @employee.destroy
-    flash[:notice] = "Employee has been deleted."
+    flash[:success] = "Employee has been deleted."
     redirect_to @firm
   end
 
@@ -65,7 +65,7 @@ class EmployeesController < ApplicationController
     def find_firm
       @firm = Firm.find(params[:firm_id])
       rescue ActiveRecord::RecordNotFound
-        flash[:alert] = "The Vendor you were looking for could not be found."
+        flash[:error] = "The Vendor you were looking for could not be found."
         redirect_to firms_path
     end
 

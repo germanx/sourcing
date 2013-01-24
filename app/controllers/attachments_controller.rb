@@ -8,7 +8,7 @@ class AttachmentsController < ApplicationController
     if can?(:view, attachment.project)
       send_file attachment.attachment.path
     else
-      flash[:alert] = "The attachment you were looking for could not be found (permission denied)."
+      flash[:error] = "The attachment you were looking for could not be found (permission denied)."
       redirect_to root_path
     end
   end

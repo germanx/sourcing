@@ -18,10 +18,10 @@ class Admin::UsersController < ApplicationController
 
     set_admin
     if @user.save
-      flash[:notice] = "User has been created."
+      flash[:success] = "User has been created."
       redirect_to session[:return_to]
     else
-      flash[:alert] = "User has not been created."
+      flash[:error] = "User has not been created."
       render :action => "new"
     end
   end
@@ -39,20 +39,20 @@ class Admin::UsersController < ApplicationController
 
     set_admin  
     if @user.update_attributes(params[:user])
-      flash[:notice] = "User has been updated."
+      flash[:success] = "User has been updated."
       redirect_to session[:return_to]
     else
-      flash[:alert] = "User has not been updated."
+      flash[:error] = "User has not been updated."
       render :action => "edit"
     end
   end
 
   def destroy
     if @user == current_user
-      flash[:alert] = "You cannot delete yourself!"
+      flash[:error] = "You cannot delete yourself!"
     else
       @user.destroy
-      flash[:notice] = "User has been deleted."
+      flash[:success] = "User has been deleted."
     end
     redirect_to admin_users_path
   end

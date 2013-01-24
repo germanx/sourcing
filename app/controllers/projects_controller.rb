@@ -44,10 +44,10 @@ class ProjectsController < ApplicationController
         stage.save
       end
 
-      flash[:notice] = "Project has been created."
+      flash[:success] = "Project has been created."
       redirect_to @project
     else
-      flash[:alert] = "Project has not been created."
+      flash[:error] = "Project has not been created."
       render :action => "new"
     end
   end
@@ -61,27 +61,27 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update_attributes(params[:project])
-      flash[:notice] = "Project has been updated."
+      flash[:success] = "Project has been updated."
       redirect_to @project
     else
-      flash[:alert] = "Project has not been updated."
+      flash[:error] = "Project has not been updated."
       render :action => "edit"
     end
   end
 
   def destroy
     @project.destroy
-    flash[:notice] = "Project has been deleted."
+    flash[:success] = "Project has been deleted."
     redirect_to projects_path
   end
 
   def change_state
     @project.state = State.find(params[:state])
     if @project.save
-      flash[:notice] = "Project state has been updated."
+      flash[:success] = "Project state has been updated."
       redirect_to @project
     else
-      flash[:alert] = "Project state has not been updated."
+      flash[:error] = "Project state has not been updated."
       redirect_to @project
     end
     

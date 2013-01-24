@@ -21,10 +21,10 @@ class ResponsesController < ApplicationController
   def create
     @response = @project.responses.build(params[:response].merge!(:user => current_user))
     if @response.save
-      flash[:notice] = "Response has been created."
+      flash[:success] = "Response has been created."
       redirect_to @project
     else
-      flash[:alert] = "Response has not been created."
+      flash[:error] = "Response has not been created."
       render :action => "new"
     end
   end
@@ -37,17 +37,17 @@ class ResponsesController < ApplicationController
 
   def update
     if @response.update_attributes(params[:response])
-      flash[:notice] = "Response has been updated."
+      flash[:success] = "Response has been updated."
       redirect_to [@project, @response]
     else
-      flash[:alert] = "Response has not been updated."
+      flash[:error] = "Response has not been updated."
       render :action => "edit"
     end
   end
 
   def destroy
     @response.destroy
-    flash[:notice] = "Response has been deleted."
+    flash[:success] = "Response has been deleted."
     redirect_to @project
   end
 
@@ -67,7 +67,7 @@ class ResponsesController < ApplicationController
           :action => 'view').first_or_create
       end
     end
-    flash[:notice] = invite_count.to_s + " invitations has been send."
+    flash[:success] = invite_count.to_s + " invitations has been send."
     redirect_to @project
   end
 
@@ -76,7 +76,7 @@ class ResponsesController < ApplicationController
     def find_project
       @project = Project.for(current_user).find(params[:project_id])
       rescue ActiveRecord::RecordNotFound
-        flash[:alert] = "The project you were looking for could not be found."
+        flash[:error] = "The project you were looking for could not be found."
         redirect_to root_path
     end
 
