@@ -1,40 +1,47 @@
-<div id='response'>
-  <h2>
-    <%= link_to "Response of " + @response.firm.name, "#" %>
-  </h2>
-
-  <%= simple_format(@response.description) %>
-
-  <% if @response.assets.exists? %>
-    <h3>Attached File</h3>
-    <div class="assets">
-      <% @response.assets.each do |asset| %>
-        <p>
-          <%= link_to File.basename(asset.asset_file_name), asset.asset.url %>
-        </p>
-        <p>
-          <small><%= number_to_human_size(asset.asset.size) %></small>
-        </p>
-      <% end %>
-    </div>
-  <% end %>
-
-  Created by <%= @response.user.email %>
+<div class="page-header">
+  <h1>Response for project: <%= @project.name %></h1>
 </div>
 
-<div class="project-right"> 
-  <% if not current_user.publisher %>
-   
-    <%= link_to "Edit Response", edit_project_response_path(@project, @response), class: "btn btn-small" %>
+Created by <%= mail_to @response.user.email %>
 
-    <%= authorized?("delete participants", @project) do %>
-      <%= link_to "Delete Participant",
-        project_response_path(@project, @response),
-        :method => :delete,
-        :confirm => "Are you sure you want to delete this response?", class: "btn btn-small" %>
-    <% end %>
+<br/>
+Response description:
+<br/>
+<%= simple_format(@response.description) %>
+<br/>
+
+<fieldset> 
+  <legend>Attached Files</legend>
+  <% if @response.assets.empty? %>
+    <em class="muted">There is no attachments.</em>
+  <% else %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Size</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @response.assets.each do |asset| %>
+          <tr>
+            <td><%= link_to File.basename(asset.asset_file_name), asset.asset.url %></td>
+            <td><%# asset.description %></td>
+            <td><%= number_to_human_size(asset.asset_file_size) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   <% end %>
+</fieldset> 
 
-  <%= link_to "Project:" + @project.name, @project, class: "btn btn-small" %>
+<div class="form-actions">
+  <%= link_to "Edit Response", edit_project_response_path(@project, @response), class: "btn btn-primary" %>
+  <%= authorized?("delete participants", @project) do %>
+    <%= link_to "Delete Participant", project_response_path(@project, @response),
+      :method => :delete,
+      :confirm => "Are you sure you want to delete this response?", class: "btn btn-danger" %>
+  <% end %>
+  <%= link_to "Return to project", @project, class: "btn" %>
 </div>
-

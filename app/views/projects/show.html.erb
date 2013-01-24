@@ -85,9 +85,11 @@
       </tbody>
     </table>
   <% end %>
-  <div class="form-actions">
-    <%= link_to "Manage", manage_attachments_path(:id => @project), class: "btn btn-primary" %>
-  </div>
+  <% if current_user.publisher %>
+    <div class="form-actions">
+      <%= link_to "Manage", manage_attachments_path(:id => @project), class: "btn btn-primary" %>
+    </div>
+  <% end %>
 </fieldset> 
 
 
@@ -109,7 +111,9 @@
       <% end %>
     </tbody>
   </table>
-  <div class="form-actions">
-    <%= link_to "Edit Schedule", edit_stage_path(@project), class: "btn btn-primary" %>
-  </div>
+  <% if current_user.publisher %>
+    <div class="form-actions">
+      <%= link_to "Edit Schedule", edit_stage_path(@project), class: "btn btn-primary" %>
+    </div>
+  <% end %>
 </fieldset>

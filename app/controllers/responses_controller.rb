@@ -22,7 +22,7 @@ class ResponsesController < ApplicationController
     @response = @project.responses.build(params[:response].merge!(:user => current_user))
     if @response.save
       flash[:success] = "Response has been created."
-      redirect_to @project
+      redirect_to project_responses_path(@project)
     else
       flash[:error] = "Response has not been created."
       render :action => "new"
@@ -48,7 +48,7 @@ class ResponsesController < ApplicationController
   def destroy
     @response.destroy
     flash[:success] = "Response has been deleted."
-    redirect_to @project
+    redirect_to project_responses_path(@project)
   end
 
   def invite
