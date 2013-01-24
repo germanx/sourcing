@@ -15,12 +15,6 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
-
-    @states.each do |state|
-      stage = @project.stages.build :state => state
-      stage.project = @project
-      stage.stage_start = Date.today
-    end
   end
 
   def create
@@ -32,7 +26,7 @@ class ProjectsController < ApplicationController
     end
 
     if @project.state.nil?
-      @project.state_id = 1
+      @project.state = State.find_by_name('New')
     end
 
     if @project.save
@@ -42,7 +36,14 @@ class ProjectsController < ApplicationController
       Permission.create!(:user => current_user,
                          :thing => @project,
                          :action => 'edit')
-      
+
+      if @project.stages.count == 0
+        stage = @project.stages.build :state => State.find_by_name('New')
+        stage.project = @project
+        stage.stage_start = Date.today
+        stage.save
+      end
+
       flash[:notice] = "Project has been created."
       redirect_to @project
     else
