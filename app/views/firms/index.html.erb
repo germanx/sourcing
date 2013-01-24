@@ -15,7 +15,7 @@
       <tr>
         <td><%= link_to firm.name, firm_path(firm) %></td>
         <td><%= firm.description %></td>
-        <td><%= firm.updated_at %></td>
+        <td><%= firm.updated_at.to_date.to_s %></td>
       </tr>
     <% end %>
   </tbody>

@@ -54,7 +54,7 @@ class Admin::UsersController < ApplicationController
       @user.destroy
       flash[:success] = "User has been deleted."
     end
-    redirect_to admin_users_path
+    redirect_to request.referer
   end
 
   private
