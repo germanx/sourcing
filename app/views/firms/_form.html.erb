@@ -1,18 +1,29 @@
-<%= form_for [@firm], :html => { :multipart => true } do |f| %>
+<%= form_for [@firm], :html => { :class => 'form-horizontal' } do |f| %>
   <%= f.error_messages %>
-  
-  <fieldset>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
 
-    <div class="field">
-      <%= f.text_area :description, placeholder: "Add description..." %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name %>
     </div>
+  </div>
 
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-   
-  </fieldset>
-  
-  <%= f.submit %>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.text_area :description, placeholder: "Add description...", :rows => 3 %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to 'Cancel', firms_path, :class => 'btn' %>
+  </div>
+
 <% end %>
