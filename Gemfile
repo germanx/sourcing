@@ -25,10 +25,12 @@ group :assets do
   gem "therubyracer"
   gem 'twitter-bootstrap-rails'
   #bootstrap end
-end
 
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
+  #jquery
+  gem 'jquery-rails'
+  gem 'jquery-ui-rails'
+  #jquery end
+end
 
 group :test, :development do
   gem 'gmail'
