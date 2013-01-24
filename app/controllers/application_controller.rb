@@ -26,4 +26,12 @@ class ApplicationController < ActionController::Base
   def find_user_firms
     @current_user_firms = Firm.for(current_user)
   end
+
+  def find_project_by_params_id
+    @project = Project.readonly(false).for(current_user).find(params[:id])
+
+    rescue ActiveRecord::RecordNotFound
+    flash[:alert] = "The project you were looking for could not be found."
+    redirect_to projects_path
+  end
 end

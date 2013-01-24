@@ -1,5 +1,9 @@
 Sourcing::Application.routes.draw do
 
+  get "stages/edit"
+
+  get "stages/update"
+
   root to: 'static_pages#home'
 
   get "users/index"
@@ -36,6 +40,7 @@ Sourcing::Application.routes.draw do
 
   resources :files
   resources :attachments
+  resources :stages
 
   resources :firms 
 #  do

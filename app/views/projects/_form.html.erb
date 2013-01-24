@@ -54,28 +54,4 @@
     <%= link_to "Add another attachment", 'javascript:', :id => "add_another_attachment" %> </fieldset>
   </fieldset>
 
-  <fieldset> 
-    <legend>Schedule (будет перенесено на отдельную форму)</legend>
-    <table>
-    <thead>
-      <th>Stage</th>
-      <th>Date</th>
-    </thead>
-    <tbody>
-      <%= f.fields_for :stages do |stage_field| %>
-        <tr>
-          <td><%= stage_field.object.state %></td>
-          <td>
-            <%= stage_field.text_field(
-              :stage_start, 
-              :value => stage_field.object.stage_start.to_date.to_s,
-              :readonly => !stage_field.object.state.edit,
-              :databehaviour => 'datepicker') %>
-            <%= stage_field.hidden_field(:state_id) %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
 <% end %>
