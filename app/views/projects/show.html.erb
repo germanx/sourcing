@@ -30,7 +30,20 @@
   <div class="form-actions">    
     <% if current_user.publisher %>
       <%= link_to "Participants and Responses", project_responses_path(@project), class: "btn" %>
-      <%= link_to "Edit Project", edit_project_path(@project), class: "btn btn-small" %>
+      <%= link_to "Edit Project Details", edit_project_path(@project), class: "btn" %>
+      <div class="btn-group">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        Change state
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+      <% @states.each do |state| %>
+        <li>
+          <%= link_to state.name, change_state_project_path(@project, :state => state) %>
+        </li>
+      <% end %>
+      </ul>
+    </div>      
       <%= link_to "Delete Project", project_path(@project), :method => :delete,
             :confirm => "Are you sure you want to delete this project?", class: "btn btn-danger" %>
     <% else %>

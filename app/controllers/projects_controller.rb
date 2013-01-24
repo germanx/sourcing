@@ -5,8 +5,9 @@ class ProjectsController < ApplicationController
                     :show,
                     :edit,
                     :update,
-                    :destroy]
-  before_filter :find_states, :only => [:new, :edit]
+                    :destroy,
+                    :change_state]
+  before_filter :find_states, :only => [:new, :edit, :show]
  
   def index
     @projects_by_firm = Project.for(current_user).all.group_by{ |project| project.firm.name}
@@ -73,4 +74,15 @@ class ProjectsController < ApplicationController
     redirect_to projects_path
   end
 
+  def change_state
+    @project.state = State.find(params[:state])
+    if @project.save
+      flash[:notice] = "Project state has been updated."
+      redirect_to @project
+    else
+      flash[:alert] = "Project state has not been updated."
+      redirect_to @project
+    end
+    
+  end
 end

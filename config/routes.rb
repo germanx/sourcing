@@ -32,6 +32,9 @@ Sourcing::Application.routes.draw do
         get 'invite'
       end
     end
+    member do
+      get 'change_state'
+    end
   end
 
   resources :tickets do
