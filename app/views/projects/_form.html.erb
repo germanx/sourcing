@@ -42,15 +42,4 @@
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to 'Cancel', projects_path, :class => 'btn' %>
     </div>
-
-
-  <fieldset> 
-    <legend>Attachments (будет перенесено на отдельную форму)</legend>
-    <% number = 0 %>
-    <div id='attachments'>
-      <%= render :partial => "attachments/form", :locals => { :number => number } %>
-    </div>
-    <%= link_to "Add another attachment", 'javascript:', :id => "add_another_attachment" %> </fieldset>
-  </fieldset>
-
 <% end %>

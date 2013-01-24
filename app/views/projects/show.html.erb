@@ -66,17 +66,26 @@
   <% if @project.attachments.empty? %>
     <em class="muted">There is no attachments. Click manage to add some.</em>
   <% end %>
-  <% @project.attachments.each do |attachment| %>
-    <p>
-      <%= link_to File.basename(attachment.attachment_file_name), attachment_path(attachment) %>
-      <%= attachment.description %>
-    </p>
-    <p>
-      <small><%= number_to_human_size(attachment.attachment.size) %></small>
-    </p>
-  <% end %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Size</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @project.attachments.each do |attachment| %>
+        <tr>
+          <td><%= link_to File.basename(attachment.attachment_file_name), attachment_path(attachment) %></td>
+          <td><%= attachment.description %></td>
+          <td><%= number_to_human_size(attachment.attachment_file_size) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
   <div class="form-actions">
-    <%= link_to "Manage", edit_stage_path(@project), class: "btn btn-primary" %>
+    <%= link_to "Manage", manage_attachments_path(:id => @project), class: "btn btn-primary" %>
   </div>
 </fieldset> 
 

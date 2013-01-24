@@ -1,21 +1,21 @@
 <%= fields_for @project do |f| %>
-  <%= f.fields_for :attachments, :child_index => number do |attachment| %>
-    <% if attachment.object.attachment_file_name.nil? %>
-      <p>
-        <%= attachment.label :attachment, "Attachment ##{number += 1}" %>
-        <%= attachment.file_field :attachment %>
-        <%= attachment.object.attachment_file_name %>
-      </p>
+  <%= f.fields_for :attachments, :child_index => number do |attachment_field| %>
+    <% if attachment_field.object.attachment_file_name.nil? %>
+      <tr>
+        <td><%= attachment_field.file_field :attachment %></td>
+        <td><%= attachment_field.text_field :description %></td>
+        <td></td>
+        <td></td>
+      </tr>
     <% else %>
-      <p>
-        <%= attachment.label :attachment, "Attachment ##{number += 1}" %>
-        <%= attachment.object.attachment_file_name %>
-        <%= link_to 'Delete', attachment.object, confirm: 'Are you sure?', method: :delete %>
-      </p>
+      <tr>
+        <td><%= attachment_field.object.attachment_file_name %></td>
+        <td><%= attachment_field.object.description %></td>
+        <td><%= number_to_human_size(attachment_field.object.attachment_file_size) %></td>
+        <td>
+          <%= link_to 'Delete', attachment_field.object, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-danger' %>
+        </td>
+      </tr>
     <% end %>
-    <p>
-      <%= attachment.label :description %>
-      <%= attachment.text_field :description %>
-    </p>
   <% end %>
 <% end %>

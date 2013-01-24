@@ -1,5 +1,7 @@
 class AttachmentsController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :find_project_by_params_id, :only => [:manage]
+
 
   def show
     attachment = Attachment.find(params[:id])
@@ -26,8 +28,11 @@ class AttachmentsController < ApplicationController
     attachment.destroy
 
     respond_to do |format|
-      format.html { redirect_to edit_project_path(project) }
+      format.html { redirect_to manage_attachments_path(:id => project) }
       format.json { head :no_content }
     end
+  end
+
+  def manage
   end
 end

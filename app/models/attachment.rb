@@ -1,5 +1,5 @@
 class Attachment < ActiveRecord::Base
-  attr_accessible :attachment, :description
+  attr_accessible :attachment, :description, :attachment_file_name
 
   belongs_to :project
 

@@ -1,0 +1,27 @@
+<div class="page-header">
+  <h1>Attachments for Project: <%= @project.name %></h1>
+</div>
+
+<%= form_for [@project], :url => project_path(@project), :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Size</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id='attachments'>
+      <% number = 0 %>
+      <%= render :partial => "attachments/form", :locals => { :number => number } %>
+    </tbody>
+  </table>
+
+  <div class="form-actions">
+    <%= link_to "Add", 'javascript:', :id => 'add_another_attachment', :class => 'btn btn-success' %>
+  	<%= f.submit "Save all", :class => 'btn btn-primary' %>
+    <%= link_to "Cancel", project_path(@project), class: "btn" %>
+  </div>
+<% end %>

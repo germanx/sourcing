@@ -42,7 +42,11 @@ Sourcing::Application.routes.draw do
   end
 
   resources :files
-  resources :attachments
+  resources :attachments do
+    collection do
+      get 'manage'
+    end
+  end
   resources :stages
 
   resources :firms 
