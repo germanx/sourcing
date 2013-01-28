@@ -13,7 +13,7 @@
 <p class="muted">
   <small>
     <em>
-      Created by <%= mail_to @ticket.user.email %>
+      Created by <%= mail_to @ticket.user.email, @ticket.user.name %>
     </em>
   </small>
 </p> 
