@@ -30,7 +30,8 @@ admin_firm = Firm.create(:email => 'info@admin.ru', :name => "Admin")
 admin_firm.save
 
 admin_user = User.create(:email => 'info@admin.ru', 
-                         :password => "123456")
+                         :password => "123456",
+                         :name => "Admin")
 admin_user.admin = true
 admin_user.firm = admin_firm
 admin_user.save
@@ -40,7 +41,8 @@ publisher_firm = Firm.create(:email => 'info@publisher.ru', :name => "Publisher"
 publisher_firm.save
 
 publisher_user = User.create(:email => 'info@publisher.ru', 
-                   :password => "123456")
+                             :password => "123456", 
+                             :name => "Publisher")
 publisher_user.publisher = true
 publisher_user.firm = publisher_firm
 publisher_user.save
@@ -51,7 +53,8 @@ vendor_firm.firm = publisher_firm
 vendor_firm.save
 
 vendor_user = User.create(:email => 'info@vendor.ru', 
-                         :password => "123456")
+                          :password => "123456", 
+                          :name => "Vendor")
 vendor_user.firm = vendor_firm
 vendor_user.save
 
@@ -67,13 +70,29 @@ prj.state = state_new
 prj.type_id = 2
 prj.save
 
+# Stage
 stage = Stage.create!(:stage_start => Date.today, :state => state_new)
 stage.project = prj 
 stage.save
 
+# Response
+Response.delete_all
+resp = Response.new(:user => vendor_user)
+resp.project = prj
+resp.firm = vendor_firm 
+resp.save
+
+Permission.create!(:user => vendor_user,
+                         :thing => prj,
+                         :action => 'view')
 Permission.create!(:user => publisher_user,
                          :thing => prj,
                          :action => 'view')
 Permission.create!(:user => publisher_user,
                          :thing => prj,
                          :action => 'edit')
+
+# Clean up
+Asset.delete_all
+Attachment.delete_all
+Comment.delete_all
