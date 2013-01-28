@@ -10,7 +10,8 @@
 State.delete_all
 state_new = State.create(:name => 'New',
              :background => '#85FF00',
-             :color => 'white')
+             :color => 'white',
+             :edit => false)
 State.create(:name => 'Published',
              :background => '#00CFFD',
              :color => 'white')
