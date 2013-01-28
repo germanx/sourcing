@@ -1,22 +1,26 @@
 <% @projects_by_firm.each do |firm_name, projects| %>
-  <h3>Projects for <%= firm_name %></h3>
+  <h1>Projects for <%= firm_name %></h1>
   <% projects.each do |project| %>
-    <div class="project-row">
-      <div class="project-row-in">
-        <div class="project-left">      
-          <h4><%= link_to project.name, project %></h4> 
-          <%= simple_format(project.description) %>
-          Reference: <%= project.number %>
-          <br/>
-          State: <%= project.state.name %>
-          <h5>Created by <%= project.user.email %></h5> 
-        </div>
+    <div class="center hero-unit">
+          <h2><%= link_to project.name, project %></h2> 
+          <p>
+            <%= simple_format(project.description) %>
+          </p>
+          <button type="button" class="btn" disabled><%= project.number %></button>
+          <button type="button" class="btn btn-success" disabled><%= project.state.name %></button>
+          <p class="muted">
+            <small>
+              <em>
+                Created by <%= mail_to project.user.email %>
+              </em>
+            <small>
+          </p> 
     </div>
   <% end %>
 <% end %>
 
-<div class="project-left">  
+<div class="form-actions"> 
   <%= publishers_only do %>
-    <%= link_to "New Project", new_project_path, class: "btn btn-small" %>
+    <%= link_to "New Project", new_project_path, class: "btn btn-large btn-primary" %>
   <% end %>
 </div>
