@@ -17,7 +17,7 @@
       <tbody>
         <% @project.responses.each do |response| %>
           <tr>
-            <td><%= response.firm.name %></td>
+            <td><%= link_to response.firm.name, [@project, response] %></td>
             <td>
               <%= link_to 'Delete', [@project, response], confirm: 'Are you sure?', method: :delete, :class => 'btn btn-danger' %>
             </td>
@@ -33,15 +33,5 @@
       <%= link_to "Send Invitaions", invite_project_responses_path(@project), class: "btn btn-success" %>
       <%= link_to "Return to project", project_path(@project), class: "btn" %>
     <% end %>
-  </div>
-
-  <div class="project-left">    
-    <ul id='responses'>
-      <% @project.responses.each do |response| %>
-        <li>
-          <%= link_to response.firm.name, [@project, response] %> 
-        </li>
-      <% end %>
-    </ul>
   </div>
 </fieldset>

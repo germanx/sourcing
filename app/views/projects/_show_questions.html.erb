@@ -1,0 +1,19 @@
+<fieldset>
+  <legend>Questions</legend>
+  
+  <% if not current_user.publisher %>
+    <div class="project-right">    
+      <%= link_to "New Ticket", new_project_ticket_path(@project), class: "btn btn-small" %>
+    </div>
+  <% end %>
+
+  <div class="project-left">    
+    <ul id='tickets'>
+      <% @project.tickets.each do |ticket| %>
+        <li>
+          <%= ticket.id %> - <%= link_to ticket.title, [@project, ticket] %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</fieldset>

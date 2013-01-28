@@ -1,0 +1,28 @@
+<% if current_user.publisher %>
+<fieldset> 
+  <legend>Participants and Responses</legend>
+  <% if @project.responses.empty? %>
+    <em class="muted">There is no participants. Click new to add some.</em>
+  <% else %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Files Attached</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @project.responses.each do |response| %>
+          <tr>
+            <td><%= link_to response.firm.name, [@project, response] %></td>
+            <td><%= link_to response.assets.count, [@project, response] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <div class="form-actions">
+    <%= link_to "Manage", project_responses_path(@project), class: "btn btn-primary" %>
+  </div>
+</fieldset>
+<% end %>
