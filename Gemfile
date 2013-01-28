@@ -33,10 +33,15 @@ group :assets do
   #bootstrap end
 
   #jquery
+  #gem 'jquery-rails'
+  #gem 'jquery-ui-rails'
+  #jquery end
+end
+
+  #jquery
   gem 'jquery-rails'
   gem 'jquery-ui-rails'
   #jquery end
-end
 
 group :test, :development do
   gem 'gmail'
