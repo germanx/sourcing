@@ -2,6 +2,8 @@
 	<div class="form-signin-container">
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "form-signin" }) do |f| %>
   
+  <%= devise_error_messages! %>
+
   <h2 class="form-signin-heading">Please sign in</h2>
   
   <%= f.text_field :email, :class => "input-block-level", :placeholder => "Email address" %>

@@ -58,12 +58,18 @@ vendor_user.save
 # Project
 Project.delete_all
 Permission.delete_all
+Stage.delete_all
 
 prj = Project.create(:name => 'Portal', :description => 'Portal Descr', :number => 'P1')
 prj.user = publisher_user
 prj.firm = publisher_firm
 prj.state = state_new
+prj.type_id = 2
 prj.save
+
+stage = Stage.create!(:stage_start => Date.today, :state => state_new)
+stage.project = prj 
+stage.save
 
 Permission.create!(:user => publisher_user,
                          :thing => prj,

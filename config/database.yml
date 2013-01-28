@@ -21,6 +21,8 @@ test: &test
 production:
   adapter: postgresql
   database: d6ek5vcikf88sk
+  username: nkduhqjgghncyf
+  password: 3xDAKoM-ZorvKhWY8JhhMIYnfW # from psql setup, see Postgresql  
   pool: 5
   timeout: 5000
 
