@@ -3,7 +3,7 @@
 
     <% if @current_user.admin? %>
       <div class="control-group">
-        <%= f.label :firm_id %>
+        <%= f.label :firm_id, :class => 'control-label' %>
         <div class="controls">
           <%= f.collection_select(:firm_id, Firm.all, :id, :name) %>
         </div>

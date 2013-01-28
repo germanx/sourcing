@@ -19,8 +19,8 @@
   <% end %>
 <% end %>
 
-<div class="form-actions"> 
-  <%= publishers_only do %>
+<%= publishers_only do %>
+  <div class="form-actions"> 
     <%= link_to "New Project", new_project_path, class: "btn btn-large btn-primary" %>
-  <% end %>
-</div>
+  </div>
+<% end %>

@@ -1,19 +1,32 @@
 <fieldset>
   <legend>Questions</legend>
-  
+  <% if @project.attachments.empty? %>
+    <em class="muted">There is no tickets. Click new to add some.</em>
+  <% else %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @project.tickets.each do |ticket| %>
+          <tr>
+            <td><%= link_to ticket.title, [@project, ticket] %></td>
+            <td><%= mail_to ticket.user.email %></td>
+            <td><%= link_to ticket.comments.count, [@project, ticket] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+
   <% if not current_user.publisher %>
-    <div class="project-right">    
-      <%= link_to "New Ticket", new_project_ticket_path(@project), class: "btn btn-small" %>
+    <div class="form-actions">
+      <%= link_to "New Ticket", new_project_ticket_path(@project), class: "btn btn-primary" %>
     </div>
   <% end %>
 
-  <div class="project-left">    
-    <ul id='tickets'>
-      <% @project.tickets.each do |ticket| %>
-        <li>
-          <%= ticket.id %> - <%= link_to ticket.title, [@project, ticket] %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
 </fieldset>

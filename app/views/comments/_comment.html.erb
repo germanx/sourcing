@@ -1,5 +1,16 @@
 <%= div_for(comment) do %>
-  <h5><%= comment.user %></h5>
+  <p>
+  	<strong>
+      <%= simple_format(comment.text) %>
+    </strong>
+  </p>
+
+  <p class="muted">
+    <small>
+      <em>
+        Created by <%= mail_to comment.user.email, comment.user.name %>
+      </em>
+    </small>
+  </p> 
   
-  <%= simple_format(comment.text) %>
 <% end %>
