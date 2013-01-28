@@ -6,8 +6,8 @@
           <p>
             <%= simple_format(project.description) %>
           </p>
-          <button type="button" class="btn" disabled><%= project.number %></button>
-          <button type="button" class="btn btn-success" disabled><%= project.state.name %></button>
+          <button type="button" class="btn" disabled>Reference: <%= project.number %></button>
+          <button type="button" class="btn btn-success" disabled>State: <%= project.state.name %></button>
           <p class="muted">
             <small>
               <em>
