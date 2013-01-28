@@ -27,10 +27,7 @@
     <div class="control-group">
       <%= f.label :type_id, :class => 'control-label' %>
       <div class="controls">
-        <%= f.select :type_id, 
-          [['Request for information',1], 
-          ['Request for proposal',2],
-          ['Request for quatation',3]], :class => 'select' %>
+        <%= f.select :type_id, Project.types.invert, :class => 'select' %>
       </div>
     </div>
 

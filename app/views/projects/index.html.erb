@@ -2,14 +2,15 @@
   <h1>Projects for <%= firm_name %></h1>
   <% projects.each do |project| %>
     <div class="center hero-unit">
-          <h2><%= link_to project.name, project %></h2> 
+          <h2><%= link_to project.name, project %></h2>
           <p>
             <%= simple_format(project.description) %>
           </p>
           <button type="button" class="btn" disabled>Reference: <%= project.number %></button>
           <button type="button" class="btn btn-success" disabled>State: <%= project.state.name %></button>
-          <p class="muted">
-            <small>
+          <p>
+            <small><em><%= project.type_name %></em></small>
+            <small class="muted">
               <em>
                 Created by <%= mail_to project.user.email, project.user.name %>
               </em>

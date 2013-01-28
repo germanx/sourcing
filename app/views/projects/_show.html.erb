@@ -11,8 +11,8 @@
     </small>
   </p> 
 
-  <button type="button" class="btn" disabled><%= @project.number %></button>
-  <button type="button" class="btn btn-success" disabled><%= @project.state.name %></button>
+  <button type="button" class="btn" disabled>Reference: <%= @project.number %></button>
+  <button type="button" class="btn btn-success" disabled>State: <%= @project.state.name %></button>
   <% if current_user.publisher %>
     <div class="btn-group">
       <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#">

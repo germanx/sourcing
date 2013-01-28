@@ -31,5 +31,17 @@ class Project < ActiveRecord::Base
   def self.for(user)
     user.admin? ? Project : Project.readable_by(user)
   end
+
+  @@types =
+    {1 => 'Request for information', 
+     2 => 'Request for proposal',
+     3 => 'Request for quatation'}  
   
+  def self.types
+    @@types
+  end
+
+  def type_name
+    Project.types[type_id]
+  end
 end
