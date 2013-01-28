@@ -23,6 +23,8 @@ production:
   database: d6ek5vcikf88sk
   username: nkduhqjgghncyf
   password: 3xDAKoM-ZorvKhWY8JhhMIYnfW # from psql setup, see Postgresql  
+  host: ec2-54-243-246-135.compute-1.amazonaws.com
+  port: 5432
   pool: 5
   timeout: 5000
 
