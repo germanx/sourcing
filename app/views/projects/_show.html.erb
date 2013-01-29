@@ -12,11 +12,13 @@
   </p> 
 
   <button type="button" class="btn" disabled>Reference: <%= @project.number %></button>
-  <button type="button" class="btn btn-success" disabled>State: <%= @project.state.name %></button>
+  <br/>
+  <br/>
+  <button type="button" class="btn btn-success" disabled>Status: <%= @project.state.name %></button>
   <% if current_user.publisher %>
     <div class="btn-group">
       <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#">
-        Change state
+        Change status
         <span class="caret"></span>
       </a>
       <ul class="dropdown-menu">

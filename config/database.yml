@@ -20,8 +20,8 @@ test: &test
 
 production:
   adapter: postgresql
-  #database: d6ek5vcikf88sk
-  #username: nkduhqjgghncyf
+  #database: d6..sk
+  #username: nk..yf
   #password:  # from psql setup, see Postgresql  
   #host: ec2-135.compute-1.amazonaws.com
   #port: 5432
