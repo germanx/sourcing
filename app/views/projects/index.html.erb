@@ -1,5 +1,5 @@
 <% @projects_by_firm.each do |firm_name, projects| %>
-  <h1>Projects for <%= firm_name %></h1>
+  <h1><%= t('.projects_for') %> <%= firm_name %></h1>
   <% projects.each do |project| %>
     <div class="center hero-unit">
           <h2><%= link_to project.name, project %></h2>

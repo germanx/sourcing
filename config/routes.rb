@@ -1,5 +1,7 @@
 Sourcing::Application.routes.draw do
 
+scope '(:locale)' do
+
   get "stages/edit"
 
   get "stages/update"
@@ -42,21 +44,18 @@ Sourcing::Application.routes.draw do
   end
 
   resources :files
+  
   resources :attachments do
     collection do
       get 'manage'
     end
   end
+  
   resources :stages
 
   resources :firms 
-#  do
-#    resources :employees do
-#      member do
-#        get 'user'
-#      end
-#    end
-#  end  
+
+end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
