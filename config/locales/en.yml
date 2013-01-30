@@ -31,6 +31,18 @@ en:
       created_by: "Created by"
       reference: "Reference:"
       state: "Status:"
+    show:
+      delete: "Delete"
+      edit_etails: "Edit Details"
+      change_status: "Change Status"
+      status: "Status:"
+      reference: "Reference:"
+    show_files:
+      name: "Name"      
+      description: "Description"
+      size: "Size"
+      rfx_documents: "RFx Documents"
+      manage: "Manage"
 
   layouts:
     header:
@@ -43,5 +55,9 @@ en:
       contact: "Contact"               
 
   firms:
-  	index:
-  	  name: "Name"	      
+    index:
+    name: "Name"	    
+    description: "Description"
+    updated_at: "Updated At"
+    companies: "Companies"
+    new_company: "New Company"

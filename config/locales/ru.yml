@@ -31,6 +31,18 @@ ru:
       created_by: "Создан"
       reference: "Номер:"
       state: "Статус:"
+    show:
+      delete: "Удалить"
+      edit_details: "Редактировать"
+      change_status: "Изменить статус"
+      status: "Статус:"
+      reference: "Номер:"
+    show_files:
+      name: "Наименование"      
+      description: "Описание"
+      size: "Размер"
+      rfx_documents: "Тендерная документация"
+      manage: "Редактировать"
 
   layouts:
     header:
@@ -43,5 +55,9 @@ ru:
       contact: "Контакты"
 
   firms:
-  	index:
-  	  name: "Наименование"	            
+    index:
+      name: "Наименование"	
+      description: "Описание"
+      updated_at: "Обновлено"
+      companies: "Вендоры"
+      new_company: "Новый вендор"

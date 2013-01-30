@@ -11,14 +11,14 @@
     </small>
   </p> 
 
-  <button type="button" class="btn" disabled>Reference: <%= @project.number %></button>
+  <button type="button" class="btn" disabled><%= t('.reference') %> <%= @project.number %></button>
   <br/>
   <br/>
-  <button type="button" class="btn btn-success" disabled>Status: <%= @project.state.name %></button>
+  <button type="button" class="btn btn-success" disabled><%= t('.status') %> <%= @project.state.name %></button>
   <% if current_user.publisher %>
     <div class="btn-group">
       <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#">
-        Change status
+        <%= t('.change_status') %>
         <span class="caret"></span>
       </a>
       <ul class="dropdown-menu">
@@ -30,8 +30,8 @@
       </ul>
     </div>
     <% if current_user.publisher %>
-      <%= link_to "Edit Details", edit_project_path(@project), class: "btn" %>
-      <%= link_to "Delete", project_path(@project), :method => :delete,
+      <%= link_to t('.edit_details'), edit_project_path(@project), class: "btn" %>
+      <%= link_to t('.delete'), project_path(@project), :method => :delete,
             :confirm => "Are you sure you want to delete this project?", class: "btn btn-danger" %>
     <% end %>
   <% end %>
