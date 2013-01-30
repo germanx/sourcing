@@ -17,7 +17,7 @@ State.create(:name => 'Published',
 State.create(:name => 'Closed',
              :background => 'black',
              :color => 'white')
-State.create(:name => 'Done',
+State.create(:name => 'Finished',
              :background => 'black',
              :color => 'white')
 
@@ -71,3 +71,13 @@ Permission.create!(:user => publisher_user,
 Permission.create!(:user => publisher_user,
                          :thing => prj,
                          :action => 'edit')
+
+# Stages
+Stage.delete_all
+
+State.all.each do |state|
+   stage = Stage.create(:state => state)
+   stage.project = prj
+   stage.stage_start = Date.today
+   stage.save
+end
