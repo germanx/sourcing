@@ -3,6 +3,7 @@ Sourcing::Application.routes.draw do
 scope '(:locale)' do
   
   match '/price' => 'static_pages#price', :as => :price
+  match '/contact' => 'static_pages#contact', :as => :contact
   
   root to: 'static_pages#home'
   
