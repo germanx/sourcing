@@ -6,13 +6,13 @@
           <p>
             <%= simple_format(project.description) %>
           </p>
-          <button type="button" class="btn" disabled>Reference: <%= project.number %></button>
-          <button type="button" class="btn btn-success" disabled>State: <%= project.state.name %></button>
+          <button type="button" class="btn" disabled> <%= t('.reference') %> <%= project.number %></button>
+          <button type="button" class="btn btn-success" disabled> <%= t('.state') %> <%= project.state.name %></button>
           <p>
             <small><em><%= project.type_name %></em></small>
             <small class="muted">
               <em>
-                Created by <%= mail_to project.user.email, project.user.name %>
+                <%= t('.created_by') %> <%= mail_to project.user.email, project.user.name %>
               </em>
             </small>
           </p> 
@@ -22,6 +22,6 @@
 
 <%= publishers_only do %>
   <div class="form-actions"> 
-    <%= link_to "New Project", new_project_path, class: "btn btn-large btn-primary" %>
+    <%= link_to t('.new_project'), new_project_path, class: "btn btn-large btn-primary" %>
   </div>
 <% end %>

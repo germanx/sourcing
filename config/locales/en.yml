@@ -14,7 +14,17 @@ en:
   projects:
     index:
       projects_for: "Projects For"
+      new_project: "New Project"
+      created_by: "Created by"
+      reference: "Reference:"
+      state: "Status:"
 
-  layout:
-    _header:
+  layouts:
+    header:
       projects: "Projects"
+      vendors: "Vendors"
+      sign_in: "Sign in"
+      sign_up: "Sign up"
+      sign_out: "Sign out"  
+      signed_in_as_: "Signed in as " 
+      contact: "Contact"               

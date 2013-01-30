@@ -14,22 +14,22 @@
             <li><%= link_to t('.projects'), projects_path %></li>
 
             <%= publishers_only do %>
-              <li><%= link_to "Vendors", firms_path %></li>
+              <li><%= link_to t('.vendors'), firms_path %></li>
             <% end %>
 
             <%= admins_only do %>
               <li><%= link_to "Admin", admin_users_path %></li>
             <% end %>
     
-            <li><%= link_to "Signed in as " + current_user.email, "#" %></li>
-            <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+            <li><%= link_to t('.signed_in_as_') + current_user.email, "#" %></li>
+            <li><%= link_to t('.sign_out'), destroy_user_session_path, :method => :delete %></li>
 
           <% else %>
-            <li><%= link_to "Sign in", new_user_session_path %></li>
-            <li><%= link_to "Sign up", new_user_registration_path %></li>
+            <li><%= link_to t('.sign_in'), new_user_session_path %></li>
+            <li><%= link_to t('.sign_up'), new_user_registration_path %></li>
           <% end %>
 
-          <li><%= link_to "About", root_path %></li>
+          <li><%= link_to t('.contact'), root_path %></li>
         </ul>
       </div>
     </div>

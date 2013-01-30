@@ -14,7 +14,17 @@ ru:
   projects:
     index:
       projects_for: "Проекты"
+      new_project: "Новый проект"
+      created_by: "Создан"
+      reference: "Номер:"
+      state: "Статус:"
 
-  layout:
-    application:
+  layouts:
+    header:
       projects: "Проекты"
+      vendors: "Вендоры"
+      sign_in: "Вход"
+      sign_up: "Регистрация"
+      sign_out: "Выход"      
+      signed_in_as_: "Пользователь "
+      contact: "Контакты"
