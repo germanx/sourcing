@@ -7,7 +7,7 @@
             <%= simple_format(project.description) %>
           </p>
           <button type="button" class="btn" disabled> <%= t('.reference') %> <%= project.number %></button>
-          <button type="button" class="btn btn-success" disabled> <%= t('.state') %> <%= project.state.name %></button>
+          <button type="button" class="btn btn-success" disabled> <%= t('.state') %> <%= t("common.states.#{project.state.name}") %></button>
           <p>
             <small><em><%= project.type_name %></em></small>
             <small class="muted">

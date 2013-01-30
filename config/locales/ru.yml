@@ -24,6 +24,12 @@ ru:
           gb: "GB"
           tb: "TB"
 
+  common:
+    states:
+      New: "Новый"
+      Published: "Опубликовано"
+      Closed: "Закрыто"
+      Done: "Завершено"
   projects:
     index:
       projects_for: "Проекты организации:"

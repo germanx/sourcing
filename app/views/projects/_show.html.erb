@@ -14,7 +14,7 @@
   <button type="button" class="btn" disabled><%= t('.reference') %> <%= @project.number %></button>
   <br/>
   <br/>
-  <button type="button" class="btn btn-success" disabled><%= t('.status') %> <%= @project.state.name %></button>
+  <button type="button" class="btn btn-success" disabled><%= t('.status') %> <%= t("common.states.#{@project.state.name}") %></button>
   <% if current_user.publisher %>
     <div class="btn-group">
       <a class="btn btn-success dropdown-toggle" data-toggle="dropdown" href="#">
@@ -24,7 +24,7 @@
       <ul class="dropdown-menu">
         <% @states.each do |state| %>
           <li>
-            <%= link_to state.name, change_state_project_path(@project, :state => state) %>
+            <%= link_to t("common.states.#{state.name}"), change_state_project_path(@project, :state => state) %>
           </li>
         <% end %>
       </ul>

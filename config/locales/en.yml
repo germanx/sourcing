@@ -24,6 +24,13 @@ en:
           gb: "GB"
           tb: "TB"
 
+  common:
+    states:
+      New: "New"
+      Published: "Published"
+      Closed: "Closed"
+      Done: "Done"
+
   projects:
     index:
       projects_for: "Projects For"

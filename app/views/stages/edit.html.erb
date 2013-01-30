@@ -15,7 +15,7 @@
     <tbody>
       <%= f.fields_for :stages do |stage_field| %>
         <tr>
-          <td><%= stage_field.object.state %></td>
+          <td><%= t("common.states.#{stage_field.object.state.name}") %></td>
           <td>
             <%= stage_field.text_field(
               :stage_start, 
