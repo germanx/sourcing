@@ -15,7 +15,7 @@
     <tbody>
       <% @project.stages.each do |stage| %>
         <tr>
-          <td><%= stage.state.name %></td>
+          <td><%= t("common.states.#{stage.state.name}") %></td>
           <td><%= stage.stage_start.to_date.to_s %></td>
         </tr>
       <% end %>

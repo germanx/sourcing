@@ -30,6 +30,7 @@ ru:
       Published: "Опубликовано"
       Closed: "Закрыто"
       Done: "Завершено"
+
   projects:
     index:
       projects_for: "Проекты организации:"
