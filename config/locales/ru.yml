@@ -28,3 +28,7 @@ ru:
       sign_out: "Выход"      
       signed_in_as_: "Пользователь "
       contact: "Контакты"
+
+  firms:
+  	index:
+  	  name: "Наименование"	            

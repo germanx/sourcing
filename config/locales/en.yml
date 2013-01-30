@@ -28,3 +28,7 @@ en:
       sign_out: "Sign out"  
       signed_in_as_: "Signed in as " 
       contact: "Contact"               
+
+  firms:
+  	index:
+  	  name: "Name"	      
