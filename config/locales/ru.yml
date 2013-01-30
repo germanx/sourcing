@@ -14,3 +14,7 @@ ru:
   projects:
     index:
       projects_for: "Проекты"
+
+  layout:
+    application:
+      projects: "Проекты"

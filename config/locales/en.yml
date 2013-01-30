@@ -14,3 +14,7 @@ en:
   projects:
     index:
       projects_for: "Projects For"
+
+  layout:
+    _header:
+      projects: "Projects"
