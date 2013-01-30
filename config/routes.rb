@@ -1,12 +1,14 @@
 Sourcing::Application.routes.draw do
 
 scope '(:locale)' do
-
+  
+  match '/price' => 'static_pages#price', :as => :price
+  
+  root to: 'static_pages#home'
+  
   get "stages/edit"
 
   get "stages/update"
-
-  root to: 'static_pages#home'
 
   get "users/index"
 
