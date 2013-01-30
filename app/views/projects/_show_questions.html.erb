@@ -1,7 +1,7 @@
 <fieldset>
   <legend>Questions</legend>
   <% if @project.attachments.empty? %>
-    <em class="muted">There is no tickets. Click new to add some.</em>
+    <em class="muted">There is no tickets.</em>
   <% else %>
     <table class="table table-striped">
       <thead>
@@ -23,7 +23,7 @@
     </table>
   <% end %>
 
-  <% if not current_user.publisher %>
+  <% if not current_user.publisher and not current_user.admin%>
     <div class="form-actions">
       <%= link_to "New Ticket", new_project_ticket_path(@project), class: "btn btn-primary" %>
     </div>
