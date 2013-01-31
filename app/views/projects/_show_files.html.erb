@@ -1,7 +1,7 @@
 <fieldset> 
   <legend><%= t('.rfx_documents') %></legend>
   <% if @project.attachments.empty? %>
-    <em class="muted">There is no attachments. Click manage to add some.</em>
+    <em class="muted"><%= t('.no_attachments') %></em>
   <% else %>
     <table class="table table-striped">
       <thead>

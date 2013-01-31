@@ -51,12 +51,30 @@ en:
       size: "Size"
       rfx_documents: "RFx Documents"
       manage: "Manage"
+      no_attachments: "There is no attachments. Click Manage to add some."
     form:
       name: "Name"
       number: "Number"
       type: "Type"
       description: "Description"
       add_description: "Add description..."
+    show_stages:
+      edit: "Edit"
+      stage: "Stage"
+      date: "Date"
+      schedule: "Schedule"
+    show_questions:
+      questions: "Questions"
+      title: "Title"
+      author: "Author"
+      comments: "Comments"
+      there_is_no_tickets: "There is no tickets."
+    show_participants:
+      participants_and_responses: "Participants and Responses"
+      name: "Name"
+      files_attached: "Files Attached"
+      manage: "Manage"
+      no_participants: "There is no participants. Click new to add some."
 
   layouts:
     header:
@@ -66,7 +84,8 @@ en:
       sign_up: "Sign up"
       sign_out: "Sign out"  
       signed_in_as_: "Signed in as " 
-      contact: "Contact"               
+      contact: "Contact"  
+      admin: "Admin"             
 
   firms:
     index:

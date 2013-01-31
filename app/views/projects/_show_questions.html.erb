@@ -1,14 +1,14 @@
 <fieldset>
-  <legend>Questions</legend>
+  <legend><%= t('.questions') %></legend>
   <% if @project.attachments.empty? %>
-    <em class="muted">There is no tickets.</em>
+    <em class="muted"><%= t('.there_is_no_tickets') %></em>
   <% else %>
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Title</th>
-          <th>Author</th>
-          <th>Comments</th>
+          <th><%= t('.title') %></th>
+          <th><%= t('.author') %></th>
+          <th><%= t('.comments') %></th>
         </tr>
       </thead>
       <tbody>

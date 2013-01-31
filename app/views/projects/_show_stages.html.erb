@@ -1,15 +1,15 @@
 <fieldset> 
   <legend>
-    Schedule
+    <%= t('.schedule') %>
     <% if current_user.publisher %>
-      <%= link_to "Edit", edit_stage_path(@project), class: "btn btn-small btn-primary" %>
+      <%= link_to t('.edit'), edit_stage_path(@project), class: "btn btn-small btn-primary" %>
     <% end %>
   </legend>
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Stage</th>
-        <th>Date</th>
+        <th><%= t('.stage') %></th>
+        <th><%= t('.date') %></th>
       </tr>
     </thead>
     <tbody>

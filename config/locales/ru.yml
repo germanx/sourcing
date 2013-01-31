@@ -51,12 +51,30 @@ ru:
       size: "Размер"
       rfx_documents: "Тендерная документация"
       manage: "Редактировать"
+      no_attachments: "Файлов не приложено. Нажмите Редактировать, чтобы приложить."
     form:
       name: "Наименование"
       number: "Номер"
       type: "Тип"
       description: "Описание"
       add_description: "Добавить описание..."
+    show_stages:
+      edit: "Редактировать"
+      stage: "Этап"
+      date: "Дата"
+      schedule: "Расписание"
+    show_questions:
+      questions: "Вопросы"
+      title: "Заголовок"
+      author: "Автор"
+      comments: "Комментарий"
+      there_is_no_tickets: "Нет вопросов."
+    show_participants:
+      participants_and_responses: "Предложения вендоров"
+      name: "Наименование"
+      files_attached: "Приложенные файлы"
+      manage: "Редактировать"
+      no_participants: "Вендоров не добавлено. Нажмите Редактировать, чтобы добавить."
 
   layouts:
     header:
@@ -67,6 +85,7 @@ ru:
       sign_out: "Выход"      
       signed_in_as_: "Пользователь "
       contact: "Контакты"
+      admin: "Администрирование"
 
   firms:
     index:
