@@ -11,21 +11,21 @@
     <% end %>
 
     <div class="control-group">
-      <%= f.label :name, :class => 'control-label' %>
+      <%= f.label :name, t('.name'), :class => 'control-label' %>
       <div class="controls">
         <%= f.text_field :name, :class => 'text_field' %>
       </div>
     </div>
 
     <div class="control-group">
-      <%= f.label :number, :class => 'control-label' %>
+      <%= f.label :number, t('.number'), :class => 'control-label' %>
         <div class="controls">
           <%= f.text_field :number %>
         </div>
     </div>
 
     <div class="control-group">
-      <%= f.label :type_id, :class => 'control-label' %>
+      <%= f.label :type_id, t('.type'), :class => 'control-label' %>
       <div class="controls">
         <%= f.select :type_id, Project.types.invert, :class => 'select' %>
       </div>
@@ -33,7 +33,7 @@
 
     <div class="control-group">
       <div class="controls">
-        <%= f.text_area :description, placeholder: "Add description...", :rows => 3 %>
+        <%= f.text_area :description, placeholder: t('.add_description'), :rows => 3 %>
       </div>
     </div>
 

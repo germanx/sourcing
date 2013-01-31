@@ -37,12 +37,19 @@ en:
       change_status: "Change Status"
       status: "Status:"
       reference: "Reference:"
+      response_of: "Response of: "
     show_files:
       name: "Name"      
       description: "Description"
       size: "Size"
       rfx_documents: "RFx Documents"
       manage: "Manage"
+    form:
+      name: "Name"
+      number: "Number"
+      type: "Type"
+      description: "Description"
+      add_description: "Add description..."
 
   layouts:
     header:

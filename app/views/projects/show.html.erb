@@ -1,6 +1,7 @@
 <% title(@project.name, "Project") %>
 <div class="page-header">
-  <h1><%= @project.type_name %>: <%= @project.name %></h1>
+  <h1><%= @project.name %></h1>
+  <h2><%= @project.type_name %></h2>
 </div>
 
 <div class="row">
@@ -15,7 +16,7 @@
 
 <% if not current_user.publisher and not current_user.admin %>
   <p class="pagination-centered">
-  <%= link_to "Response of " + @response.firm.name, [@project, @response], class: "btn btn-large btn-success" %>
+  <%= link_to t('.response_of') + @response.firm.name, [@project, @response], class: "btn btn-large btn-success" %>
   </p>
 <% end %>
 

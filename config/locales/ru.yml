@@ -37,12 +37,19 @@ ru:
       change_status: "Изменить статус"
       status: "Статус:"
       reference: "Номер:"
+      response_of: "Ответ вендора: "
     show_files:
       name: "Наименование"      
       description: "Описание"
       size: "Размер"
       rfx_documents: "Тендерная документация"
       manage: "Редактировать"
+    form:
+      name: "Наименование"
+      number: "Номер"
+      type: "Тип"
+      description: "Описание"
+      add_description: "Добавить описание..."
 
   layouts:
     header:
