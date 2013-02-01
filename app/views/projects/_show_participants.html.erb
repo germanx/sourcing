@@ -1,14 +1,14 @@
 <% if current_user.publisher %>
 <fieldset> 
-  <legend>Participants and Responses</legend>
+  <legend><%= t('.participants_and_responses') %></legend>
   <% if @project.responses.empty? %>
-    <em class="muted">There is no participants. Click new to add some.</em>
+    <em class="muted"><%= t('.no_participants') %></em>
   <% else %>
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Files Attached</th>
+          <th><%= t('.name') %></th>
+          <th><%= t('.files_attached') %></th>
         </tr>
       </thead>
       <tbody>
@@ -22,7 +22,7 @@
     </table>
   <% end %>
   <div class="form-actions">
-    <%= link_to "Manage", project_responses_path(@project), class: "btn btn-primary" %>
+    <%= link_to t('.manage'), project_responses_path(@project), class: "btn btn-primary" %>
   </div>
 </fieldset>
 <% end %>

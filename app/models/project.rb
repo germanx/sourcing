@@ -33,9 +33,9 @@ class Project < ActiveRecord::Base
   end
 
   @@types =
-    {1 => 'Request for information', 
-     2 => 'Request for proposal',
-     3 => 'Request for quatation'}  
+    {1 => 'Request for Information', 
+     2 => 'Request for Proposal',
+     3 => 'Request for Quatation'}  
   
   def self.types
     @@types
