@@ -11,7 +11,7 @@
         <th>Actions</th>
       </tr>
     </thead>
-    <tbody id='attachments'>
+    <tbody>
       <% @users.each do |user| %>
         <tr>
           <td><%= link_to user, [:admin, user] %></td>
