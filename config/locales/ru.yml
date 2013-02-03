@@ -26,10 +26,10 @@ ru:
 
   common:
     states:
-      New: "Новый"
-      Published: "Опубликовано"
-      Closed: "Закрыто"
-      Done: "Завершено"
+      New: "Добавлен"
+      Published: "Объявление тендера"
+      Closed: "Окончание приема предложений"
+      Done: "Объявление результатов"
 
   projects:
     index:
@@ -45,6 +45,7 @@ ru:
       status: "Статус:"
       reference: "Номер:"
       response_of: "Ответ вендора: "
+      created_by: "Добавлено "
     show_files:
       name: "Наименование"      
       description: "Описание"
@@ -58,11 +59,13 @@ ru:
       type: "Тип"
       description: "Описание"
       add_description: "Добавить описание..."
+      cancel: "Отменить"
+      update: "Редактировать"
     show_stages:
       edit: "Редактировать"
       stage: "Этап"
       date: "Дата"
-      schedule: "Расписание"
+      schedule: "График"
     show_questions:
       questions: "Вопросы"
       title: "Заголовок"
@@ -75,6 +78,10 @@ ru:
       files_attached: "Приложенные файлы"
       manage: "Редактировать"
       no_participants: "Вендоров не добавлено. Нажмите Редактировать, чтобы добавить."
+    edit:
+      update_project: "Редактировать проект"
+    new:
+      new_project: "Новый проект"
 
   layouts:
     header:
@@ -94,3 +101,29 @@ ru:
       updated_at: "Обновлено"
       companies: "Вендоры"
       new_company: "Новый вендор"
+    show:
+      name: "Наименование"
+      email: "Email"     
+      position: "Должность"
+      phone: "Телефон"
+      actions: "Действия"
+      edit_vendor: "Редактировать вендора"
+      delete_vendor: "Удалить вендора"
+      vendor: "Вендор:"
+      description: "Описание:"
+      delete_user: "Удалить сотрудника"
+      add_user: "Добавить сотрудника"
+    new:
+      new_vendor: "Новый вендор"
+    form:
+      name: "Наименование"
+      email: "Email"
+      add_description: "Добавить описание..." 
+
+  stages:
+    edit:
+      schedule_for_project: "График проекта"
+      stage: "Этап"
+      date: "Дата"
+      cancel: "Отменить"
+      update: "Редактировать"

@@ -45,6 +45,7 @@ en:
       status: "Status:"
       reference: "Reference:"
       response_of: "Response of: "
+      created_by: "Created by "
     show_files:
       name: "Name"      
       description: "Description"
@@ -58,6 +59,8 @@ en:
       type: "Type"
       description: "Description"
       add_description: "Add description..."
+      cancel: "Cancel"
+      update: "Update Project"
     show_stages:
       edit: "Edit"
       stage: "Stage"
@@ -75,6 +78,10 @@ en:
       files_attached: "Files Attached"
       manage: "Manage"
       no_participants: "There is no participants. Click new to add some."
+    edit:
+      update_project: "Update Project"
+    new:
+      new_project: "New Project"
 
   layouts:
     header:
@@ -89,8 +96,34 @@ en:
 
   firms:
     index:
-    name: "Name"	    
-    description: "Description"
-    updated_at: "Updated At"
-    companies: "Companies"
-    new_company: "New Company"
+      name: "Name"	    
+      description: "Description"
+      updated_at: "Updated At"
+      companies: "Companies"
+      new_company: "New Company"
+    show:
+      name: "Name"
+      email: "Email"
+      position: "Position"
+      phone: "Phone"
+      actions: "Actions"
+      edit_vendor: "Edit Vendor"
+      delete_vendor: "Delete Vendor"
+      vendor: "Vendor:"
+      description: "Description:"
+      delete_user: "Delete Employee"
+      add_user: "Add Employee"
+    new:
+      new_vendor: "New Vendor"
+    form:
+      name: "Name"
+      email: "Email"
+      add_description: "Add description..."
+
+  stages:
+    edit:
+      schedule_for_project: "Schedule for Project"
+      stage: "Stage"
+      date: "Date"
+      cancel: "Cancel"
+      update: "Update"

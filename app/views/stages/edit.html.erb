@@ -1,5 +1,6 @@
 <div class="page-header">
-  <h1>Schedule for Project: <%= @project.name %></h1>
+  <h1><%= t('.schedule_for_project') %></h1>
+  <h2><%= @project.name %></h2>
 </div>
 
 <%= form_for [@project], :url => project_path(@project) do |f| %>
@@ -8,8 +9,8 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Stage</th>
-        <th>Date</th>
+        <th><%= t('.stage') %></th>
+        <th><%= t('.date') %></th>
       </tr>
     </thead>
     <tbody>
@@ -30,7 +31,7 @@
   </table>
 
   <div class="form-actions">
-  	<%= f.submit "Update", :class => 'btn btn-primary' %>
-    <%= link_to "Cancel", project_path(@project), class: "btn" %>
+  	<%= f.submit t('.update'), :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel'), project_path(@project), class: "btn" %>
   </div>
 <% end %>

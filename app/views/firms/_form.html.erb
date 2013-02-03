@@ -2,14 +2,14 @@
   <%= f.error_messages %>
 
   <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
+    <%= f.label :name, t('.name'), :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :name %>
     </div>
   </div>
 
   <div class="control-group">
-    <%= f.label :email, :class => 'control-label' %>
+    <%= f.label :email, t('.email'), :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :email %>
     </div>
@@ -17,7 +17,7 @@
 
   <div class="control-group">
     <div class="controls">
-      <%= f.text_area :description, placeholder: "Add description...", :rows => 3 %>
+      <%= f.text_area :description, placeholder: t('.add_description'), :rows => 3 %>
     </div>
   </div>
 

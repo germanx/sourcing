@@ -6,7 +6,7 @@
   <p class="muted">
     <small>
       <em>
-        Created by <%= mail_to @project.user.email, @project.user.name %>
+        <%= t('.created_by') %> <%= mail_to @project.user.email, @project.user.name %>
       </em>
     </small>
   </p> 
