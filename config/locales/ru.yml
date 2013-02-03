@@ -162,6 +162,12 @@ ru:
       cancel: "Отменить"
 
   tickets:
+    show:
+      ticket_comments: "Комментарии"
+      edit_ticket: "Редактировать"
+      delete_ticket: "Удалить"    
+      there_are_no_comments_for_this_ticket: "Нет комментариев по этому вопросу."  
+      created_by: "Автор"
     new:
       new_question: "Новый вопрос"
     form:
@@ -171,3 +177,7 @@ ru:
       cancel: "Отменить"
     edit:
       edit: "Редактировать"
+
+  comments:
+    form:
+      create_comment: "Создать комментарий"
