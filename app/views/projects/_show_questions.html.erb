@@ -1,6 +1,6 @@
 <fieldset>
   <legend><%= t('.questions') %></legend>
-  <% if @project.attachments.empty? %>
+  <% if @project.tickets.empty? %>
     <em class="muted"><%= t('.there_is_no_tickets') %></em>
   <% else %>
     <table class="table table-striped">
