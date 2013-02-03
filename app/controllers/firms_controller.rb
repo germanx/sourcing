@@ -35,7 +35,7 @@ class FirmsController < ApplicationController
   def update
     if @firm.update_attributes(params[:firm])
       flash[:success] = "Vendor has been updated."
-      redirect_to firms_path
+      redirect_to firm_path(@firm)
     else
       flash[:error] = "Vendor has not been updated."
       render :action => "edit"
