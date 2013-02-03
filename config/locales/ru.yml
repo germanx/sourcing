@@ -184,3 +184,24 @@ ru:
     form:
       create_comment: "Создать комментарий"
       new_comment: "Новый комментарий..."
+
+  devise:
+    sessions:
+      new:
+        please_sign_in: "Вход"
+        email_address: "Email"
+        password: "Пароль"
+        remember_me: "Запомнить"
+        sign_in: "Войти"
+      shared:
+        links:
+          sign_in: "Вход"
+          sign_up: "Регистрация"
+          forgot_your_password: "Забыли пароль?"
+    
+  registrations:
+    new:
+      sign_up: "Регистрация"
+      email_address: "Email"
+      password: "Пароль"
+      password_confirmation: "Подтверждение пароля"
