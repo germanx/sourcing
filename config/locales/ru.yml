@@ -148,3 +148,14 @@ ru:
       add_another_file: "Добавить другой файл"
       edit_response: "Редактировать ответ"
       cancel: "Отменить"
+
+  attachments:
+    manage:
+      attachments_for_project: "Приложенные файлы по проекту:"
+      name: "Наименование"
+      description: "Описание"
+      size: "Размер"
+      actions: "Действия"
+      add: "Добавить"
+      save_all: "Сохранить все"
+      cancel: "Отменить"

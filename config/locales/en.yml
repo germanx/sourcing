@@ -148,3 +148,14 @@ en:
       add_another_file: "Add another file"
       edit_response: "Edit Response"
       cancel: "Cancel"
+
+  attachments:
+    manage:
+      attachments_for_project: "Attachments for Project:"
+      name: "Name"
+      description: "Description"
+      size: "Size"
+      actions: "Actions"
+      add: "Add"
+      save_all: "Save all"
+      cancel: "Cancel"
