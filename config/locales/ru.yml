@@ -59,6 +59,7 @@ ru:
       author: "Автор"
       comments: "Комментарий"
       there_is_no_tickets: "Нет вопросов."
+      new_ticket: "Новый вопрос"
     show_participants:
       participants_and_responses: "Предложения вендоров"
       name: "Наименование"
@@ -159,3 +160,14 @@ ru:
       add: "Добавить"
       save_all: "Сохранить все"
       cancel: "Отменить"
+
+  tickets:
+    new:
+      new_question: "Новый вопрос"
+    form:
+      title: "Заголовок"
+      add_description: "Добавить описание..."
+      add: "Добавить"
+      cancel: "Отменить"
+    edit:
+      edit: "Редактировать"

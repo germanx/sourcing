@@ -59,6 +59,7 @@ en:
       author: "Author"
       comments: "Comments"
       there_is_no_tickets: "There is no tickets."
+      new_ticket: "New Question"
     show_participants:
       participants_and_responses: "Participants and Responses"
       name: "Name"
@@ -159,3 +160,14 @@ en:
       add: "Add"
       save_all: "Save all"
       cancel: "Cancel"
+
+  tickets:
+    new:
+      new_question: "New Question"
+    form:
+      title: "Title"
+      add_description: "Add ddescription..."
+      add: "Add"
+      cancel: "Cancel"
+    edit:
+      edit: "Edit"

@@ -2,7 +2,7 @@
   <%= f.error_messages %>
 
   <div class="control-group">
-    <%= f.label :title, :class => 'control-label' %>
+    <%= f.label :title, t('.title'), :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :title %>
     </div>
@@ -10,13 +10,13 @@
 
   <div class="control-group">
     <div class="controls">
-      <%= f.text_area :description, placeholder: "Add description...", :rows => 3 %>
+      <%= f.text_area :description, placeholder: t('.add_description'), :rows => 3 %>
     </div>
   </div>
   
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to 'Cancel', request.referer, :class => 'btn' %>
+    <%= f.submit t('.add'), :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel'), request.referer, :class => 'btn' %>
   </div>
 
 <% end %>
