@@ -127,3 +127,37 @@ ru:
       date: "Дата"
       cancel: "Отменить"
       update: "Редактировать"
+
+  responses:
+    index:
+      project_participants: "Приглашенные вендоры по проекту:"
+      there_is_no_participants: "Нет приглашенных вендоров. Нажмите Добавить."     
+      name: "Наименование"
+      actions: "Действия" 
+      delete: "Удалить"
+      new_participant: "Добавить вендора"
+      send_invitaions: "Послать приглашение"
+      return_to_project: "Перейти к проекту"
+    new:
+      new_vendor: "Новый вендор"
+      name: "Наименование"
+      new: "Добавить вендора"
+      cancel: "Отменить"
+    show:
+      response_for_project: "Ответ по проекту:"
+      response_description: "Комментарий вендора:"
+      attached_files: "Приложенные файлы"
+      name: "Наименование"
+      description: "Описание"
+      size: "Размер"
+      there_is_no_attachments: "Нет приложенных файлов."
+      edit_response: "Редактировать ответ"
+      delete_participant: "Удалить вендора из проекта"
+      return_to_project: "Перейти к проекту"
+    edit:
+      edit_response_for_project: "Редактировать ответ по проекту"
+      description: "Описание"
+      add_description: "Добавить описание..."
+      add_another_file: "Добавить другой файл"
+      edit_response: "Редактировать ответ"
+      cancel: "Отменить"

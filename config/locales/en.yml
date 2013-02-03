@@ -127,3 +127,37 @@ en:
       date: "Date"
       cancel: "Cancel"
       update: "Update"
+
+  responses:
+    index:
+      project_participants: "Project Vendors:"
+      there_is_no_participants: "There is no participants. Click new to add some."
+      name: "Name"
+      actions: "Actions"
+      delete: "Delete"
+      new_participant: "New Vendor"
+      send_invitaions: "Send Invitaions"
+      return_to_project: "Return to Project"
+    new:
+      new_vendor: "New Vendor"
+      name: "Name"
+      new: "Add Vendor"
+      cancel: "Cancel"
+    show:
+      response_for_project: "Response for Project:"
+      response_description: "Vendor Comments:"
+      attached_files: "Attached Files"
+      name: "Name"
+      description: "Description"
+      size: "Size"
+      there_is_no_attachments: "There is no attachments."
+      edit_response: "Edit Response"
+      delete_participant: "Delete Vendor for Project"
+      return_to_project: "Return to project"
+    edit:
+      edit_response_for_project: "Edit Response for Project"
+      description: "Description"
+      add_description: "Add description..."
+      add_another_file: "Add another file"
+      edit_response: "Edit Response"
+      cancel: "Cancel"

@@ -1,17 +1,18 @@
 <% title(@project.name, "Project") %>
 <div class="page-header">
-  <h1>Project Participants: <%= @project.name %></h1>
+  <h1><%= t('.project_participants') %></h1>
+  <h2><%= @project.name %></h2>
 </div>
 
 <fieldset>
   <% if @project.responses.empty? %>
-    <em class="muted">There is no participants. Click new to add some.</em>
+    <em class="muted"><%= t('.there_is_no_participants') %></em>
   <% else %>
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Actions</th>
+          <th><%= t('.name') %></th>
+          <th><%= t('.actions') %></th>
         </tr>
       </thead>
       <tbody>
@@ -19,7 +20,7 @@
           <tr>
             <td><%= link_to response.firm.name, [@project, response] %></td>
             <td>
-              <%= link_to 'Delete', [@project, response], confirm: 'Are you sure?', method: :delete, :class => 'btn btn-danger' %>
+              <%= link_to t('.delete'), [@project, response], confirm: 'Are you sure?', method: :delete, :class => 'btn btn-danger' %>
             </td>
           </tr>
         <% end %>
@@ -29,9 +30,9 @@
 
   <div class="form-actions">  
     <%= authorized?("edit".to_sym, @project) do %>
-      <%= link_to "New Participant", new_project_response_path(@project), class: "btn btn-primary" %>
-      <%= link_to "Send Invitaions", invite_project_responses_path(@project), class: "btn btn-success" %>
-      <%= link_to "Return to project", project_path(@project), class: "btn" %>
+      <%= link_to t('.new_participant'), new_project_response_path(@project), class: "btn btn-primary" %>
+      <%= link_to t('.send_invitaions'), invite_project_responses_path(@project), class: "btn btn-success" %>
+      <%= link_to t('.return_to_project'), project_path(@project), class: "btn" %>
     <% end %>
   </div>
 </fieldset>

@@ -1,26 +1,25 @@
 <div class="page-header">
-  <h1>Response for project: <%= @project.name %></h1>
+  <h1><%= t('.response_for_project') %></h1>
+  <h2><%= @project.name %></h2>
+  Created by <%= mail_to @response.user.email %>
 </div>
 
-Created by <%= mail_to @response.user.email %>
-
-<br/>
-Response description:
+<%= t('.response_description') %>
 <br/>
 <%= simple_format(@response.description) %>
 <br/>
 
 <fieldset> 
-  <legend>Attached Files</legend>
+  <legend><%= t('.attached_files') %></legend>
   <% if @response.assets.empty? %>
-    <em class="muted">There is no attachments.</em>
+    <em class="muted"><%= t('.there_is_no_attachments') %></em>
   <% else %>
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Size</th>
+          <th><%= t('.name') %></th>
+          <th><%= t('.description') %></th>
+          <th><%= t('.size') %></th>
         </tr>
       </thead>
       <tbody>
@@ -37,11 +36,11 @@ Response description:
 </fieldset> 
 
 <div class="form-actions">
-  <%= link_to "Edit Response", edit_project_response_path(@project, @response), class: "btn btn-primary" %>
+  <%= link_to t('.edit_response'), edit_project_response_path(@project, @response), class: "btn btn-primary" %>
   <%= authorized?("delete participants", @project) do %>
-    <%= link_to "Delete Participant", project_response_path(@project, @response),
+    <%= link_to t('.delete_participant'), project_response_path(@project, @response),
       :method => :delete,
       :confirm => "Are you sure you want to delete this response?", class: "btn btn-danger" %>
   <% end %>
-  <%= link_to "Return to project", @project, class: "btn" %>
+  <%= link_to t('.return_to_project'), @project, class: "btn" %>
 </div>
