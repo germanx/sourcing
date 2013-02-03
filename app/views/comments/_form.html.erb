@@ -1,7 +1,7 @@
 <%= form_for [@ticket, @comment] do |f| %>
   <%= f.error_messages %>
   <p>
-    <%= f.text_area :text, placeholder: "New comment...", :rows => 3 %>
+    <%= f.text_area :text, placeholder: t('.new_comment'), :rows => 3 %>
   </p>
   <%= f.submit t('.create_comment'), :class => 'btn btn-primary' %>
 <% end %>

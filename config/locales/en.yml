@@ -168,6 +168,8 @@ en:
       delete_ticket: "Delete Ticket"
       there_are_no_comments_for_this_ticket: "There are no comments for this ticket."
       created_by: "Created by"
+      ticket_title: "Ticket Title"
+      project: "Project:"
     new:
       new_question: "New Question"
     form:
@@ -181,3 +183,4 @@ en:
   comments:
     form:
       create_comment: "Create Comment"
+      new_comment: "New comment..."

@@ -1,8 +1,9 @@
 <% title(@project.name, "Project") %>
 <div class="page-header">
-  <h1><%= @ticket.title %></h1>
+  <h1><%= t('.ticket_title') %> <%= @ticket.title %></h1>
 </div>
-<em>Project: <%= @project.name %></em>
+<em><%= t('.project') %></em>
+<em><%= @project.name %></em>
 
 <p>
 <strong>
@@ -13,11 +14,10 @@
 <p class="muted">
   <small>
     <em>
-      <%= t('created_by') %> <%= mail_to @ticket.user.email, @ticket.user.name %>
+      <%= t('.created_by') %> <%= mail_to @ticket.user.email, @ticket.user.name %>
     </em>
   </small>
 </p> 
-
 
 <div class="project-right">  
   <%= authorized?("edit", @project) do %>

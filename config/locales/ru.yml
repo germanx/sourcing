@@ -167,7 +167,9 @@ ru:
       edit_ticket: "Редактировать"
       delete_ticket: "Удалить"    
       there_are_no_comments_for_this_ticket: "Нет комментариев по этому вопросу."  
-      created_by: "Автор"
+      created_by: "Автор:"
+      ticket_title: "Вопрос:"
+      project: "Проект:"
     new:
       new_question: "Новый вопрос"
     form:
@@ -181,3 +183,4 @@ ru:
   comments:
     form:
       create_comment: "Создать комментарий"
+      new_comment: "Новый комментарий..."
