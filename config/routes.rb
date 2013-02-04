@@ -4,6 +4,7 @@ scope '(:locale)' do
   
   match '/price' => 'static_pages#price', :as => :price
   match '/contact' => 'static_pages#contact', :as => :contact
+  match '/mailgun/post' => 'mailgun#post'
   
   root to: 'static_pages#home'
   
