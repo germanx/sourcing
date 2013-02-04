@@ -68,6 +68,6 @@ class Admin::UsersController < ApplicationController
     end
 
     def store_referer
-      session[:return_to] ||= request.referer
+      session[:return_to] = request.referer
     end
 end
