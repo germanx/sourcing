@@ -15,6 +15,7 @@ class MailgunController < ApplicationController
      
      puts "sender: #{sender}, subject: #{subject}, attach count: #{count}"
      puts "body: #{actual_body}"
+     puts "params: #{params}"
 
      count.times do |i|
        stream = params["attachment-#{i+1}"]
