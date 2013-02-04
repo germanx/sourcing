@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1><%= t('.project_mails') %></h1>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= t('.from') %></th>
+      <th><%= t('.recipient') %></th>
+      <th><%= t('.subject') %></th>
+      <th><%= t('.attchment_count') %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= link_to post.from, firms_path %></td>
+        <td><%= post.recipient %></td>
+        <td><%= post.subject %></td>
+        <td><%= post.attachment_count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="form-actions">
+  <%= link_to t('.back_to_project'), new_firm_path, class: "btn btn-primary" %>
+</div>
