@@ -1,5 +1,6 @@
 <div class="page-header">
-  <h1>Attachments for Project: <%= @project.name %></h1>
+  <h1><%= t('.attachments_for_project') %></h1>
+  <h2><%= @project.name %></h2>
 </div>
 
 <%= form_for [@project], :url => project_path(@project), :html => { :multipart => true } do |f| %>
@@ -7,10 +8,10 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Size</th>
-        <th>Actions</th>
+        <th><%= t('.name') %></th>
+        <th><%= t('.description') %></th>
+        <th><%= t('.size') %></th>
+        <th><%= t('.actions') %></th>
       </tr>
     </thead>
     <tbody id='attachments'>
@@ -20,8 +21,8 @@
   </table>
 
   <div class="form-actions">
-    <%= link_to "Add", 'javascript:', :id => 'add_another_attachment', :class => 'btn btn-success' %>
-  	<%= f.submit "Save all", :class => 'btn btn-primary' %>
-    <%= link_to "Cancel", project_path(@project), class: "btn" %>
+    <%= link_to t('.add'), 'javascript:', :id => 'add_another_attachment', :class => 'btn btn-success' %>
+  	<%= f.submit t('.save_all'), :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel'), project_path(@project), class: "btn" %>
   </div>
 <% end %>
