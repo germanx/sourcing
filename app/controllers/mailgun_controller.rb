@@ -10,6 +10,7 @@ class MailgunController < ApplicationController
      post.subject = params['subject']
      post.attachment_count = params['attachment-count'].to_i
      post.timestamp = params['timestamp'].to_i
+     post.project_id = Project.find_by_email(post.recipient)
      post.save
 
      post.attachment_count.times do |i|
