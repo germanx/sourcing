@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130204211908) do
+ActiveRecord::Schema.define(:version => 20130219101030) do
 
   create_table "assets", :force => true do |t|
     t.string   "asset_file_name"
@@ -95,6 +95,16 @@ ActiveRecord::Schema.define(:version => 20130204211908) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "post_attachments", :force => true do |t|
+    t.integer  "post_id"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+  end
+
   create_table "posts", :force => true do |t|
     t.string   "recipient"
     t.string   "sender"
@@ -104,6 +114,8 @@ ActiveRecord::Schema.define(:version => 20130204211908) do
     t.integer  "timestamp"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.integer  "project_id"
+    t.string   "body"
   end
 
   create_table "projects", :force => true do |t|
@@ -116,6 +128,7 @@ ActiveRecord::Schema.define(:version => 20130204211908) do
     t.integer  "user_id"
     t.integer  "firm_id"
     t.integer  "state_id"
+    t.string   "email"
   end
 
   create_table "responses", :force => true do |t|

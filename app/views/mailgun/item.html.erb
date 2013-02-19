@@ -1,0 +1,39 @@
+<div class="page-header">
+  <h1><%= t('.mail_message') %></h1>
+</div>
+
+<br/>
+Recipient: <%= @post.recipient %>
+<br/>
+From: <%= @post.from %>
+<br/>
+Subject: <%= @post.subject %>
+<br/>
+<%= @post.body %>
+
+<fieldset> 
+  <legend><%= t('.attached_files') %></legend>
+  <% if @post.post_attachments.empty? %>
+    <em class="muted"><%= t('.there_is_no_attachments') %></em>
+  <% else %>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th><%= t('.name') %></th>
+          <th><%= t('.size') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @post.post_attachments.each do |attach| %>
+          <tr>
+            <td><%= link_to File.basename(attach.attachment_file_name), attach.attachment.url %></td>
+            <td><%= number_to_human_size(attach.attachment_file_size) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</fieldset> 
+<div class="form-actions">
+  <%= link_to t('.return_to_project_mails'), request.referer, class: "btn btn-primary" %>
+</div>

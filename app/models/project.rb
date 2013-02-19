@@ -6,8 +6,9 @@ class Project < ActiveRecord::Base
   validates :description, presence: true, length: { maximum: 250 }
   validates :number,      presence: true, length: { maximum: 30 }
   validates :user_id,     presence: true
-  validates :firm_id,     presence: true  
-  validates :state_id,    presence: true  
+  validates :firm_id,     presence: true
+  validates :state_id,    presence: true
+  validates :email,       uniqueness: true
 
   belongs_to :user
   belongs_to :firm
@@ -15,6 +16,7 @@ class Project < ActiveRecord::Base
 
   has_many :tickets, :dependent => :delete_all
   has_many :responses, :dependent => :delete_all
+  has_many :posts, :dependent => :delete_all
   has_many :permissions, :as => :thing  
 
   has_many :stages, :dependent => :delete_all

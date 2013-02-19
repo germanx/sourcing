@@ -10,8 +10,12 @@
       </em>
     </small>
   </p> 
-
   <button type="button" class="btn" disabled><%= t('.reference') %> <%= @project.number %></button>
+  <a href="<%= mailgun_list_path(:id => @project) %>" class="btn btn-info">
+    <i class="icon-envelope"></i>
+    <%= t('.mail_archive')%>
+    <span class="badge badge-info"><%= @project.posts.count %></span>
+  </a>
   <br/>
   <br/>
   <button type="button" class="btn btn-success" disabled><%= t('.status') %> <%= t("common.states.#{@project.state.name}") %></button>

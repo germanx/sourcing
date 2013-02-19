@@ -1,6 +1,7 @@
 class MailgunController < ApplicationController
   skip_before_filter :verify_authenticity_token
-
+  before_filter :find_project_by_params_id, :only => [:list]
+  
   def post
      post = Post.new
      post.recipient = params['recipient']
@@ -23,6 +24,10 @@ class MailgunController < ApplicationController
   end
 
   def list
-    @posts = Post.all
+    @posts = @project.posts
+  end
+
+  def item
+    @post = Post.find(params[:id])
   end
 end

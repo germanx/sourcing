@@ -2,6 +2,14 @@
   <h1><%= t('.project_mails') %></h1>
 </div>
 
+<p class="muted">
+  <small>
+    <em>
+      <%= t('.project_email_address') %> <%= mail_to @project.email, @project.email %>
+    </em>
+  </small>
+</p> 
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -14,9 +22,9 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
-        <td><%= link_to post.from, firms_path %></td>
-        <td><%= post.recipient %></td>
-        <td><%= post.subject %></td>
+        <td><%= link_to post.from, mailgun_item_path(:id => post) %></td>
+        <td><%= link_to post.recipient, mailgun_item_path(:id => post) %></td>
+        <td><%= link_to post.subject, mailgun_item_path(:id => post) %></td>
         <td><%= post.attachment_count %></td>
       </tr>
     <% end %>
@@ -24,5 +32,5 @@
 </table>
 
 <div class="form-actions">
-  <%= link_to t('.back_to_project'), new_firm_path, class: "btn btn-primary" %>
+  <%= link_to t('.back_to_project'), request.referer, class: "btn btn-primary" %>
 </div>
