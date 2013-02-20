@@ -18,6 +18,7 @@ class MailgunController < ApplicationController
        att = PostAttachment.new
        att.post_id = post.id
        att.attachment = params["attachment-#{i+1}"]
+       att.save!
 
        stream = params["attachment-#{i+1}"]
        filename = stream.original_filename
