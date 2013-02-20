@@ -15,11 +15,16 @@ class MailgunController < ApplicationController
      post.save
 
      post.attachment_count.times do |i|
+       att = PostAttachment.new
+       att.post_id = post.id
+       att.attachment = params["attachment-#{i+1}"]
+
        stream = params["attachment-#{i+1}"]
        filename = stream.original_filename
        data = stream.read()
 
        puts "filename: #{filename}"
+       puts "stream: #{stream}#
      end
      
      render :text => "OK"
