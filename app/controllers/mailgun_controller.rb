@@ -24,7 +24,7 @@ class MailgunController < ApplicationController
        data = stream.read()
 
        puts "filename: #{filename}"
-       puts "stream: #{stream}#
+       puts "stream: #{stream}"
      end
      
      render :text => "OK"
