@@ -3,7 +3,7 @@
 
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => "form-signin" }) do |f| %>
       <%= devise_error_messages! %>
-
+      
       <h2 class="form-signin-heading"><%= t('.sign_up') %></h2>
 
       <%= f.text_field :email, :class => "input-block-level", :placeholder => t('.email_address') %>
@@ -12,8 +12,10 @@
 
       <%= f.password_field :password_confirmation, :class => "input-block-level", :placeholder => t('.password_confirmation') %>
 
+      <%= f.hidden_field :plan, {:value => params['plan'] } %>
+
       <%= f.submit t('.sign_up'), :class => "btn btn-large btn-primary" %>
-      
+
       <br/>
       <br/>
 

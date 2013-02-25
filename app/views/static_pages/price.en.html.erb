@@ -15,6 +15,7 @@
             <li>0 archive project</li>
           </ul>
         </blockquote>
+        <%= link_to "Sign Up", new_user_registration_path(:plan => 'personal'), class: "btn btn-large btn-primary" %>
       </p>
     </div>
   </li>
@@ -30,6 +31,7 @@
             <li>10 archive projects</li>
           </ul>
         </blockquote>
+        <%= link_to "Sign Up", new_user_registration_path(:plan => 'team'), class: "btn btn-large btn-primary" %>
       </p>
     </div>
   </li>
@@ -45,10 +47,10 @@
             <li>unlimited archive projects</li>
           </ul>
         </blockquote>
+        <%= link_to "Sign Up", new_user_registration_path(:plan => 'unlimited'), class: "btn btn-large btn-primary" %>
       </p>
     </div>
   </li>
 </ul>
 
-<%= link_to "Pricing & Sign Up", price_path, class: "btn btn-large btn-primary" %>
 
