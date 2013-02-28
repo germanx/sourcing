@@ -82,3 +82,5 @@ gem 'rails-i18n'
 # gem 'debugger'
 
 gem 'thin'
+
+gem 'rest-client'

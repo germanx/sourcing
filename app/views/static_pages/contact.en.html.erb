@@ -1,9 +1,44 @@
 <% provide(:title, 'Contact') %>
 
-<div class="center hero-unit">
+<!--div class="center hero-unit"-->
   <h1>Contact Us</h1>
   <br/>
   <p>
     <h3><a href="mailto:contact@erfp.ru">contact@erfp.ru</a></h3>
   </p>
-</div>
+  <h2>Or request call</h2>
+  
+  <%= form_tag '/mailgun/callrequest', :class => 'form-horizontal' do %>
+    <div class="control-group">
+      <%= label_tag(:name, "Name:", :class => 'control-label') %>
+      <div class="controls">
+        <%= text_field_tag(:name) %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= label_tag(:phone, "Phone:", :class => 'control-label') %>
+      <div class="controls">
+        <%= text_field_tag(:phone) %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= label_tag(:email, "Email:", :class => 'control-label') %>
+      <div class="controls">
+        <%= text_field_tag(:email) %>
+      </div>
+    </div>
+    
+    <div class="control-group">
+      <%= label_tag(:details, "Details:", :class => 'control-label') %> 
+      <div class="controls">
+        <%= text_field_tag(:details) %>
+      </div>
+    </div>
+    
+    <div class="form-actions">
+      <%= submit_tag("Request", :class => 'btn btn-primary') %>
+    </div>
+  <% end %>
+<!--/div-->

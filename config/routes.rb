@@ -6,7 +6,8 @@ scope '(:locale)' do
   match '/contact' => 'static_pages#contact', :as => :contact
   match '/mailgun/post' => 'mailgun#post'
   get 'mailgun/list'
-  get 'mailgun/item' 
+  get 'mailgun/item'
+  match 'mailgun/callrequest' 
 
   root to: 'static_pages#home'
   

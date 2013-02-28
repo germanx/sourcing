@@ -38,4 +38,21 @@ class MailgunController < ApplicationController
   def item
     @post = Post.find(params[:id])
   end
+
+  def callrequest
+    key = ENV['MAILGUN_API_KEY']
+    url = "https://api:#{key}@api.mailgun.net/v2/erfp.mailgun.org"
+
+    RestClient.post url + "/messages", 
+      :from => "contact@erfp.ru",
+      :to => ENV['CALL_REQUEST_EMAIL'],
+      :subject => "Call requested",
+      :html => "<p><b>Name:</b> #{params['name']}</p> 
+                <p><b>Phone:</b> #{params['phone']}</p> 
+                <p><b>Email:</b> #{params['email']}</p> 
+                <p><b>Details:</b> #{params['details']}</p>"
+    
+    flash[:success] = "Call requrst submitt successfully."
+    redirect_to root_path
+  end
 end
